@@ -1,9 +1,78 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <link rel="stylesheet" href="infinity.css">
   <title>تواصل معنا - Infinity</title>
+  <style>
+    /* Responsive Design */
+
+    /* Small screens (mobile phones) */
+    @media (max-width: 767px) {
+        body {
+            font-size: 14px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            text-align: center;
+        }
+
+        nav {
+            flex-direction: column; /* Stack navigation links vertically */
+            gap: 10px;
+        }
+
+        .box {
+            width: 100%; /* Full width for smaller screens */
+            margin: 0 auto;
+        }
+
+        .properties {
+            grid-template-columns: 1fr; /* Single column layout */
+        }
+
+        .banner h2 {
+            font-size: 20px;
+        }
+
+        .filter-form {
+            flex-direction: column; /* Stack form elements vertically */
+            gap: 15px;
+        }
+
+        .filter-form select,
+        .filter-form input[type="number"],
+        .filter-button {
+            width: 100%; /* Full width for form elements */
+        }
+    }
+
+    /* Extra small screens (very small phones) */
+    @media (max-width: 480px) {
+        header h1 {
+            font-size: 20px;
+        }
+
+        .banner h2 {
+            font-size: 18px;
+        }
+
+        .box {
+            padding: 15px;
+        }
+
+        footer p {
+            font-size: 12px;
+        }
+    }
+  </style>
 </head>
 
 <body>
