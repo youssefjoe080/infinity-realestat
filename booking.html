@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="infinity.css">
+  <title>حجز زيارة - Infinity</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
+            <h1>Infinity - شقق وتشطيبات</h1>
+        </div>
+    </header>
+
+    <nav>
+        <!-- Navigation links -->
+        <a href="home.html">الرئيسية</a>
+        <a href="properties.html">الشقق</a>
+        <a href="services.html">التشطيبات</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">تواصل معنا</a>
+    </nav>
+
+    <section>
+        <h2>احجز زيارتك الآن</h2>
+        <form id="booking-form" onsubmit="sendBooking(event)">
+            <label for="name">الاسم الثلاثي:</label>
+            <input type="text" id="name" name="name" required placeholder="أدخل اسمك الثلاثي">
+            
+            <label for="phone">رقم الهاتف:</label>
+            <input type="tel" id="phone" name="phone" required placeholder="أدخل رقم هاتفك">
+            
+            <button type="submit" class="submit-button">إرسال</button>
+        </form>
+        <p id="confirmation-message" style="display: none; color: green; font-weight: bold; margin-top: 20px;">
+            تم إرسال بياناتك بنجاح. سنتواصل معك في أقرب وقت ممكن.
+        </p>
+    </section>
+
+    <footer>
+        <p>© 2025 Infinity. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        function sendBooking(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+
+            // Prepare email content
+            const email = "joegames080@gmail.com"; // Replace with your email
+            const subject = "طلب حجز زيارة";
+            const body = `مرحباً،\n\nتم تقديم طلب حجز زيارة.\n\nالتفاصيل:\nالاسم: ${name}\nرقم الهاتف: ${phone}\n\nشكراً.`;
+
+            // Open mail client
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            // Show confirmation message
+            const confirmationMessage = document.getElementById('confirmation-message');
+            confirmationMessage.style.display = "block";
+
+            // Clear form fields
+            document.getElementById('booking-form').reset();
+        }
+    </script>
+</body>
+</html>

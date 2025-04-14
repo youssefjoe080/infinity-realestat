@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="infinity.css">
+  <title>تفاصيل الشقة - Infinity</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
+            <h1>Infinity - شقق وتشطيبات</h1>
+        </div>
+    </header>
+
+    <nav>
+        <a href="home.html">الرئيسية</a>
+        <a href="properties.html">الشقق</a>
+        <a href="services.html">التشطيبات</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">تواصل معنا</a>
+    </nav>
+
+    <section id="property-details">
+        <div class="details-container">
+            <div class="details-header">
+                <h2 id="property-name">تفاصيل الشقة</h2>
+                <p id="property-description"></p>
+                <p><strong>السعر:</strong> <span id="property-price"></span> جنيه</p>
+                <p><strong>سعر المتر:</strong> 15,000 جنيه</p>
+            </div>
+            <div class="details-images">
+                <div class="image-slider">
+                    <button class="slider-button prev" onclick="changeSlide(-1)">&#10094;</button>
+                    <div id="property-images" class="slider-images">
+                        <!-- Images will be dynamically inserted here -->
+                    </div>
+                    <button class="slider-button next" onclick="changeSlide(1)">&#10095;</button>
+                </div>
+                <div class="slider-indicators" id="slider-indicators">
+                    <!-- Indicators will be dynamically inserted here -->
+                </div>
+            </div>
+            <div class="property-features">
+                <h3>مزايا الشقة</h3>
+                <ul id="property-features-list">
+                    <!-- Features will be dynamically inserted here -->
+                </ul>
+            </div>
+            <div class="details-actions">
+                <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
+                <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="related-properties">
+        <h2>شقق قريبة</h2>
+        <div class="related-container">
+            <!-- Related properties will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Infinity. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        const properties = [
+            { 
+                name: "شقة في المقطم - الهضبة الوسطى - الحي الثالث",
+                description: "شقة رائعة في كمبوند ايزي لايف بموقع مميز في الحي الثالث. تتميز الشقة بتصميم عصري ومساحات واسعة تناسب العائلات.",
+                price: 2750000,
+                features: [
+                    "3 غرف نوم واسعة",
+                    "ريسبشن قطعتين",
+                    "مطبخ كبير مجهز",
+                    "حمام سباحة خاص",
+                    "مسجد داخل الكمبوند",
+                    "جيم مجهز بالكامل",
+                    "غاز طبيعي وتليفون أرضي",
+                    "أسانسير حديث",
+                    "إطلالة رائعة على المساحات الخضراء"
+                ],
+                images: [
+                    "photo-inf.jpg/one.jpg",
+                    "photo-inf.jpg/two.jpg",
+                    "photo-inf.jpg/three.jpg"
+                ]
+            },
+            {
+                name: "شقق في المقطم الهضبه الوسطي الحي التاني",
+                description: "شقة مميزة في الحي الثاني بموقع استراتيجي قريب من الخدمات. تصميم عصري يناسب العائلات.",
+                price: 1500000,
+                features: [
+                    "2 غرف نوم",
+                    "ريسبشن واسع",
+                    "مطبخ مفتوح",
+                    "قريب من المدارس والخدمات",
+                    "إطلالة رائعة على المدينة"
+                ],
+                images: [
+                    "photo-2-inf.jpg/background.jpg",
+                    "photo-2-inf.jpg/2.jpg",
+                    "photo-2-inf.jpg/3.jpg",
+                    "photo-2-inf.jpg/4.jpg"
+                ]
+            },
+            {
+                name: "شقة مميزة في الحي الثاني - الهضبة الوسطى",
+                description: "شقة بمساحة 200 متر | 4 غرف نوم | 3 حمامات | تسليم فوري | موقع مميز بالقرب من الخدمات.",
+                price: 3200000,
+                features: [
+                    "4 غرف نوم",
+                    "3 حمامات",
+                    "مطبخ كبير",
+                    "تشطيب فاخر",
+                    "قريب من المدارس والمولات"
+                ],
+                images: [
+                    "photo-2-inf.jpg/5.jpg",
+                    "photo-2-inf.jpg/6.jpg",
+                    "photo-2-inf.jpg/7.jpg"
+                ]
+            }
+        ];
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const propertyName = decodeURIComponent(urlParams.get('name')).trim();
+        const property = properties.find(p => p.name === propertyName);
+
+        if (property) {
+            document.getElementById('property-name').textContent = property.name;
+            document.getElementById('property-description').textContent = property.description;
+            document.getElementById('property-price').textContent = property.price.toLocaleString();
+
+            const imagesContainer = document.getElementById('property-images');
+            const indicatorsContainer = document.getElementById('slider-indicators');
+            property.images.forEach((image, index) => {
+                const imgElement = document.createElement('img');
+                imgElement.src = image;
+                imgElement.alt = property.name;
+                imgElement.classList.add('slider-image');
+                if (index === 0) imgElement.classList.add('active');
+                imagesContainer.appendChild(imgElement);
+
+                const indicator = document.createElement('span');
+                indicator.classList.add('indicator');
+                if (index === 0) indicator.classList.add('active');
+                indicator.setAttribute('onclick', `goToSlide(${index})`);
+                indicatorsContainer.appendChild(indicator);
+            });
+
+            const featuresList = document.getElementById('property-features-list');
+            property.features.forEach(feature => {
+                const featureItem = document.createElement('li');
+                featureItem.textContent = feature;
+                featuresList.appendChild(featureItem);
+            });
+
+            const relatedContainer = document.querySelector('.related-container');
+            properties.filter(p => p.name !== propertyName).forEach(related => {
+                const relatedBox = document.createElement('div');
+                relatedBox.classList.add('box');
+                relatedBox.innerHTML = `
+                    <img src="${related.images[0]}" alt="${related.name}" class="property-image">
+                    <h3>${related.name}</h3>
+                    <p>${related.description}</p>
+                    <button class="details-button" onclick="window.location.href='details.html?name=${encodeURIComponent(related.name)}'">تفاصيل</button>
+                `;
+                relatedContainer.appendChild(relatedBox);
+            });
+        } else {
+            document.getElementById('property-details').innerHTML = '<p>عذرًا، لم يتم العثور على تفاصيل هذه الشقة.</p>';
+        }
+
+        let currentSlide = 0;
+        function changeSlide(direction) {
+            const slides = document.querySelectorAll('.slider-image');
+            const indicators = document.querySelectorAll('.indicator');
+            slides[currentSlide].classList.remove('active');
+            indicators[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+        }
+
+        function goToSlide(index) {
+            const slides = document.querySelectorAll('.slider-image');
+            const indicators = document.querySelectorAll('.indicator');
+            slides[currentSlide].classList.remove('active');
+            indicators[currentSlide].classList.remove('active');
+            currentSlide = index;
+            slides[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+        }
+    </script>
+</body>
+</html>

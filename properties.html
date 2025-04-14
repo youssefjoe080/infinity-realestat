@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="infinity.css">
+  <title>الشقق - Infinity</title>
+  <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
+            <h1>Infinity - شقق وتشطيبات</h1>
+        </div>
+    </header>
+
+    <nav>
+        <!-- Navigation links -->
+        <a href="home.html">الرئيسية</a>
+        <a href="properties.html">الشقق</a>
+        <a href="services.html">التشطيبات</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">تواصل معنا</a>
+    </nav>
+
+    <section>
+        <h2>شقق معروضة للبيع</h2>
+        <div class="properties">
+            <!-- Property 1 -->
+            <div class="box">
+                <h3>شقة في التجمع الخامس</h3>
+                <p>150 متر | 3 غرف | 2 حمام</p>
+                <div class="details">
+                    <button class="details-button" onclick="window.location.href='details.html?name=شقة في التجمع الخامس'">تفاصيل</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
+                    <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
+                </div>
+            </div>
+            <!-- Property 2 -->
+            <div class="box">
+                <h3>شقة في المعادي</h3>
+                <p>120 متر | تشطيب كامل | موقع مميز</p>
+                <div class="details">
+                    <button class="details-button" onclick="window.location.href='details.html?name=شقة في المعادي'">تفاصيل</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
+                    <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
+                </div>
+            </div>
+            <!-- New property -->
+            <div class="box">
+                <img src="photo-inf.jpg/one.jpg" alt="شقة في المقطم - الهضبة الوسطى - الحي الثالث" class="property-image">
+                <h3>شقة في المقطم - الهضبة الوسطى - الحي الثالث</h3>
+                <p><strong>كمبوند:</strong> ايزي لايف</p>
+                <p><strong>المواصفات:</strong> 3 غرف نوم، ريسبشن قطعتين، مطبخ كبير، حمام واحد</p>
+                <p><strong>الخدمات:</strong> حمام سباحة، مسجد، جيم</p>
+                <p><strong>المرافق:</strong> غاز طبيعي، تليفون أرضي، أسانسير</p>
+                <p><strong>الدور:</strong> الخامس</p>
+                <p><strong>السعر:</strong> <span class="original-price">2,800,000 جنيه</span> <span class="discounted-price">2,750,000 جنيه</span> <small>(تخفيض لمدة أسبوع)</small></p>
+                <div class="details">
+                    <button class="details-button" onclick="window.location.href='details.html?name=شقة في المقطم - الهضبة الوسطى - الحي الثالث'">تفاصيل</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
+                    <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
+                </div>
+                <div class="location">
+                    <strong>الموقع:</strong> <a href="https://maps.app.goo.gl/k1EPaeoouTZ3CxwE6?g_st=ic" class="location-link">اضغط هنا لعرض الموقع</a>
+                </div>
+            </div>
+            <!-- New property -->
+            <div class="box">
+                <img src="photo-2-inf.jpg/background.jpg" alt="شقة جديدة" class="property-image">
+                <h3> شقق في المقطم الهضبه الوسطي الحي التاني </h3>
+                <p><strong>المواصفات:</strong> تسليم خلال 4 شهور | سعر المتر: 15,000 جنيه</p>
+                <p>شقة رائعة بتصميم عصري وموقع استراتيجي قريب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية.</p>
+                <div class="details">
+                    <button class="details-button" onclick="window.location.href='details.html?name=شقق في المقطم الهضبه الوسطي الحي التاني'">تفاصيل</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
+                    <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Infinity. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        // Apply ScrollReveal animations
+        ScrollReveal().reveal('header', { duration: 1000, origin: 'top', distance: '50px' });
+        ScrollReveal().reveal('nav', { duration: 1000, origin: 'bottom', distance: '50px', delay: 200 });
+        ScrollReveal().reveal('.properties .box', { duration: 1000, origin: 'bottom', distance: '50px', interval: 200 });
+        ScrollReveal().reveal('footer', { duration: 1000, origin: 'bottom', distance: '50px', delay: 600 });
+    </script>
+</body>
+</html>
