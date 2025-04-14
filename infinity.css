@@ -817,6 +817,11 @@ form#booking-form input:focus {
     .filter-button {
         width: 100%; /* Full width for form elements */
     }
+
+    .floating-contact {
+        font-size: 40px; /* Larger size for better visibility */
+        padding: 20px 25px;
+    }
 }
 
 /* Extra small screens (very small phones) */
@@ -1017,7 +1022,7 @@ button {
     border-radius: 50px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    font-size: 30px; 
+    font-size: 30px;
     font-weight: bold;
     z-index: 1000;
     transition: transform 0.3s ease, background-color 0.3s ease;

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="infinity.css">
+  <title>الرئيسية - Infinity</title>
+  <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
+            <h1>Infinity - شقق وتشطيبات</h1>
+        </div>
+    </header>
+    <nav>
+        <!-- Navigation links -->
+        <a href="home.html">الرئيسية</a>
+        <a href="properties.html">الشقق</a>
+        <a href="services.html">التشطيبات</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">تواصل معنا</a>
+    </nav>
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <h2>اختر موقع شقتك وحدد السعر</h2>
+        <form class="filter-form">
+            <select id="location" name="location" onchange="handleLocationChange()">
+                <option value="" disabled selected> الاماكن المتاحه حاليا </option>
+                <option value="التجمع الخامس">التجمع الخامس</option>
+                <option value="التجمع التالت">التجمع التالت</option>
+                <option value="المقطم">المقطم</option>
+            </select>
+            <select id="sublocation" name="sublocation" style="display: none;">
+                <option value="" disabled selected>اختر المنطقة الفرعية</option>
+                <option value="الهضبة الوسطى">الهضبة الوسطى</option>
+                <option value="شارع 9">شارع 9</option>
+                <option value="الحي الأول">الحي الأول</option>
+                <option value="الحي الثاني">الحي الثاني</option>
+                <option value="الحي الثالث">الحي الثالث</option>
+                <option value="الحي الرابع">الحي الرابع</option>
+                <option value="الحي الخامس">الحي الخامس</option>
+                <option value="الحي السادس">الحي السادس</option>
+                <option value="الحي السابع">الحي السابع</option>
+                <option value="الحي الثامن">الحي الثامن</option>
+            </select>
+            <div class="price-range">
+                <label for="price-range">السعر:</label>
+                <input type="range" id="min-price" name="min-price" min="0" max="5000000" step="50000" value="0" oninput="updatePriceDisplay()">
+                <input type="range" id="max-price" name="max-price" min="0" max="5000000" step="50000" value="5000000" oninput="updatePriceDisplay()">
+                <div class="price-display">
+                    <span id="min-price-display">0</span> جنيه - 
+                    <span id="max-price-display">5,000,000</span> جنيه
+                </div>
+            </div>
+            <button type="button" class="filter-button" onclick="filterProperties()">ابحث الآن</button>
+        </form>
+    </section>
+
+    <!-- Filtered Properties Section -->
+    <section id="filtered-properties" class="filtered-properties">
+        <h2>نتائج البحث</h2>
+        <div class="properties" id="properties-container">
+            <!-- Filtered properties will be dynamically inserted here -->
+        </div>
+    </section>
+    
+    <section class="hero">
+        <h2>مرحباً بك في Infinity</h2>
+        <p>نحن هنا لمساعدتك في العثور على شقة أحلامك وتشطيبها بأعلى جودة.</p>
+    </section>
+
+    <!-- Section for sold apartments -->
+    <section class="sold-apartments">
+        <h2>شقق تم بيعها</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="شقة 1">
+                <p>شقة في التجمع الخامس</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="شقة 2">
+                <p>شقة في المعادي</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="شقة 3">
+                <p>شقة في مدينة نصر</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section for completed finishing projects -->
+    <section class="completed-projects">
+        <h2>مشاريع التشطيب المكتملة</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="تشطيب 1">
+                <p>تشطيب فندقي - التجمع الخامس</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="تشطيب 2">
+                <p>تشطيب اقتصادي - المعادي</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="تشطيب 3">
+                <p>تشطيب فاخر - مدينة نصر</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section for testimonials -->
+    <section class="testimonials">
+        <h2>آراء العملاء</h2>
+        <div class="testimonial">
+            <p>"خدمة ممتازة وشقة رائعة! شكراً Infinity!"</p>
+            <span>- أحمد علي</span>
+        </div>
+        <div class="testimonial">
+            <p>"تشطيبات على أعلى مستوى وبأسعار مناسبة."</p>
+            <span>- سارة محمد</span>
+        </div>
+    </section>
+
+    <!-- Floating Contact Button -->
+    <button class="floating-contact" onclick="toggleContactOptions()">تواصل معنا</button>
+    <div class="contact-options">
+        <div class="contact-box" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب / مكالمات</div>
+        <div class="contact-box" onclick="window.open('https://www.instagram.com/', '_blank')">إنستجرام </div>
+    </div>
+
+    <footer>
+        <div class="logo-container">
+            <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
+            <h1>Infinity - شقق وتشطيبات</h1>
+        </div>
+        <p>© 2025 Infinity. جميع الحقوق محفوظة.</p>
+    </footer>
+
+
+    <script>
+        // Sample data for properties
+        const properties = [
+            { 
+                location: "المقطم", 
+                sublocation: ["الهضبة الوسطى", "الحي الثالث"], 
+                name: "شقة في المقطم - الهضبة الوسطى - الحي الثالث", 
+                details: "كمبوند: ايزي لايف | 3 غرف نوم، ريسبشن قطعتين، مطبخ كبير، حمام واحد | حمام سباحة، مسجد، جيم | غاز طبيعي، تليفون أرضي، أسانسير | الدور: الخامس", 
+                price: 2750000, 
+                originalPrice: 2800000, 
+                image: "photo-inf.jpg/one.jpg" // Ensure this path is correct
+            },
+            { location: "التجمع الخامس", name: "شقة في التجمع الخامس", details: "150 متر | 3 غرف | 2 حمام", price: 1500000 },
+            { location: "التجمع التالت", name: "شقة في التجمع التالت", details: "140 متر | 3 غرف | 2 حمام", price: 1200000 },
+            { location: "المقطم", sublocation: ["شارع 9"], name: "شقة في شارع 9", details: "120 متر | 2 غرف | 1 حمام", price: 900000 },
+            {
+                location: "موقع مميز",
+                sublocation: [],
+                name: "شقة جديدة في موقع مميز",
+                details: "تسليم خلال 4 شهور | سعر المتر: 15,000 جنيه",
+                description: "شقة رائعة بتصميم عصري وموقع استراتيجي قريب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية.",
+                price: 15000,
+                image: "photo-2-inf.jpg/background.jpg"
+            },
+            {
+                location: "المقطم",
+                sublocation: ["الهضبة الوسطى", "الحي الثاني"],
+                name: "شقق في المقطم الهضبه الوسطي الحي التاني",
+                details: "تسليم خلال 4 شهور | سعر المتر: 15,000 جنيه",
+                description: "شقة رائعة بتصميم عصري وموقع استراتيجي قريب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية.",
+                price: 15000,
+                image: "photo-2-inf.jpg/background.jpg"
+            }
+        ];
+
+        // Show sublocation dropdown if "المقطم" is selected
+        function handleLocationChange() {
+            const location = document.getElementById('location').value;
+            const sublocationDropdown = document.getElementById('sublocation');
+            if (location === "المقطم") {
+                sublocationDropdown.style.display = "inline-block";
+            } else {
+                sublocationDropdown.style.display = "none";
+                sublocationDropdown.value = ""; // Reset sublocation
+            }
+        }
+
+        // Update price display
+        function updatePriceDisplay() {
+            const minPrice = document.getElementById('min-price').value;
+            const maxPrice = document.getElementById('max-price').value;
+            document.getElementById('min-price-display').textContent = parseInt(minPrice).toLocaleString();
+            document.getElementById('max-price-display').textContent = parseInt(maxPrice).toLocaleString();
+        }
+
+        // Function to filter properties based on location, sublocation, and price range
+        function filterProperties() {
+            const location = document.getElementById('location').value;
+            const sublocation = document.getElementById('sublocation').value;
+            const minPrice = parseInt(document.getElementById('min-price').value) || 0;
+            const maxPrice = parseInt(document.getElementById('max-price').value) || Infinity;
+            const propertiesContainer = document.getElementById('properties-container');
+            propertiesContainer.innerHTML = ''; // Clear previous results
+
+            if (location) {
+                const filtered = properties.filter(property => {
+                    const matchesLocation = property.location === location;
+                    const matchesSublocation = !sublocation || (Array.isArray(property.sublocation) ? property.sublocation.includes(sublocation) : property.sublocation === sublocation);
+                    const matchesPrice = property.price >= minPrice && property.price <= maxPrice;
+                    return matchesLocation && matchesSublocation && matchesPrice;
+                });
+
+                if (filtered.length > 0) {
+                    filtered.forEach(property => {
+                        const propertyBox = document.createElement('div');
+                        propertyBox.classList.add('box');
+                        propertyBox.innerHTML = `
+                            <img src="${property.image || 'https://via.placeholder.com/300'}" alt="${property.name}" class="property-image">
+                            <h3>${property.name}</h3>
+                            <p>${property.details}</p>
+                            <p><strong>السعر:</strong> ${property.originalPrice ? `<span class="original-price">${property.originalPrice.toLocaleString()} جنيه</span>` : ''} <span class="discounted-price">${property.price.toLocaleString()} جنيه</span></p>
+                            <div class="details">
+                                <button class="details-button" onclick="window.location.href='details.html?name=${encodeURIComponent(property.name)}'">تفاصيل</button>
+                            </div>
+                            <div class="action-buttons">
+                                <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
+                                <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
+                            </div>
+                        `;
+                        propertiesContainer.appendChild(propertyBox);
+                    });
+                } else {
+                    propertiesContainer.innerHTML = '<p>لا توجد شقق متاحة بناءً على المعايير المحددة.</p>';
+                }
+            } else {
+                alert('يرجى اختيار الموقع أولاً');
+            }
+        }
+
+        // Apply ScrollReveal animations
+        ScrollReveal().reveal('header', { duration: 1000, origin: 'top', distance: '50px' });
+        ScrollReveal().reveal('nav', { duration: 1000, origin: 'bottom', distance: '50px', delay: 200 });
+        ScrollReveal().reveal('.banner', { duration: 1000, origin: 'top', distance: '50px', delay: 400 });
+        ScrollReveal().reveal('#filtered-properties', { duration: 1000, origin: 'bottom', distance: '50px', delay: 600 });
+        ScrollReveal().reveal('footer', { duration: 1000, origin: 'bottom', distance: '50px', delay: 800 });
+
+        function toggleContactOptions() {
+            const contactOptions = document.querySelector('.contact-options');
+            contactOptions.classList.toggle('active');
+        }
+
+        // Close contact options when clicking outside
+        document.addEventListener('click', (event) => {
+            const contactOptions = document.querySelector('.contact-options');
+            const floatingContact = document.querySelector('.floating-contact');
+            if (!floatingContact.contains(event.target) && !contactOptions.contains(event.target)) {
+                contactOptions.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
