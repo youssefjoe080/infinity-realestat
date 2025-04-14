@@ -774,7 +774,7 @@ form#booking-form input:focus {
 }
 
 /* Small screens (mobile phones) */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     body {
         font-size: 14px;
     }
