@@ -103,7 +103,6 @@
                 <h2 id="property-name">تفاصيل الشقة</h2>
                 <p id="property-description"></p>
                 <p><strong>السعر:</strong> <span id="property-price"></span> جنيه</p>
-                <p><strong>سعر المتر:</strong> 15,000 جنيه</p>
             </div>
             <div class="details-images">
                 <div class="image-slider">
@@ -167,7 +166,8 @@
             {
                 name: "شقق في المقطم الهضبه الوسطي الحي التاني",
                 description: "شقة مميزة في الحي الثاني بموقع استراتيجي قريب من الخدمات. تصميم عصري يناسب العائلات.",
-                price: 1500000,
+                description:"سعر المتر 15000 جنيه ومساحه الشقق 165 متر كل الادوار متاحه ماعدا الاول والرابع",
+                price: 15000 ,
                 features: [
                     "2 غرف نوم",
                     "ريسبشن واسع",
@@ -179,27 +179,12 @@
                     "photo-2-inf.jpg/background.jpg",
                     "photo-2-inf.jpg/2.jpg",
                     "photo-2-inf.jpg/3.jpg",
-                    "photo-2-inf.jpg/4.jpg"
+                    "photo-2-inf.jpg/4.jpg",
                 ]
             },
-            {
-                name: "شقة مميزة في الحي الثاني - الهضبة الوسطى",
-                description: "شقة بمساحة 200 متر | 4 غرف نوم | 3 حمامات | تسليم فوري | موقع مميز بالقرب من الخدمات.",
-                price: 3200000,
-                features: [
-                    "4 غرف نوم",
-                    "3 حمامات",
-                    "مطبخ كبير",
-                    "تشطيب فاخر",
-                    "قريب من المدارس والمولات"
-                ],
-                images: [
-                    "photo-2-inf.jpg/5.jpg",
-                    "photo-2-inf.jpg/6.jpg",
-                    "photo-2-inf.jpg/7.jpg"
-                ]
-            }
-        ];
+
+        ]
+        
 
         const urlParams = new URLSearchParams(window.location.search);
         const propertyName = decodeURIComponent(urlParams.get('name')).trim();
