@@ -89,6 +89,7 @@
         <a href="index.html">الرئيسية</a>
         <a href="properties.html">الشقق</a>
         <a href="services.html">التشطيبات</a>
+        <a href="furniture.html">الاثاث</a>
         <a href="about.html">من نحن</a>
         <a href="contact.html">تواصل معنا</a>
     </nav>
@@ -100,7 +101,23 @@
     </section>
 
     <footer>
-        <p>© 2025 Infinity. جميع الحقوق محفوظة.</p>
+        <div class="footer-content">
+            <div class="logo-container">
+                <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
+                <h1>Infinity - شقق وتشطيبات</h1>
+            </div>
+            <p>© 2025 Infinity. جميع الحقوق محفوظة.</p>
+            <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">العودة إلى الأعلى</button>
+        </div>
     </footer>
+
+    <script>
+        // Apply ScrollReveal animations
+        ScrollReveal().reveal('header', { duration: 1000, origin: 'top', distance: '50px' });
+        ScrollReveal().reveal('nav', { duration: 1000, origin: 'bottom', distance: '50px', delay: 200 });
+        ScrollReveal().reveal('.properties .box', { duration: 1000, origin: 'bottom', distance: '50px', interval: 200 });
+        ScrollReveal().reveal('footer', { duration: 1000, origin: 'bottom', distance: '50px', delay: 600 });
+    </script>
+    
 </body>
 </html>

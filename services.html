@@ -89,26 +89,104 @@
         <a href="index.html">الرئيسية</a>
         <a href="properties.html">الشقق</a>
         <a href="services.html">التشطيبات</a>
+        <a href="furniture.html">الاثاث</a>
         <a href="about.html">من نحن</a>
         <a href="contact.html">تواصل معنا</a>
     </nav>
+        <main style="padding: 20px; font-family: 'Cairo', sans-serif; margin-top: 50px;">
+            <section style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin-top: 50px;">
+                <!-- Royal Touch Package -->
+                <div style="border: 1px solid #ccc; border-radius: 10px; padding: 20px; width: 300px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-align: center;">
+                    <img src="services/Royal.jpg" alt="Royal Touch" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+                    <button style="all: unset; cursor: pointer;" onclick="document.getElementById('royal-touch-details').scrollIntoView({ behavior: 'smooth' });">
+                        <h2 style="text-align: center; color: #ffc107;">Royal Touch</h2>
+                        <h3 style="text-align: center; color: #333;">الباقة الفاخرة</h3>
+                        <p style="text-align: center; color: #555;">تشطيب فاخر بخامات عالية الجودة وتصميم داخلي خاص.</p>
+                    </button>
+                    <button style="margin-top: 10px; background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px;" onclick="document.getElementById('royal-touch-details').scrollIntoView({ behavior: 'smooth' });">تفاصيل الباقة</button>
+                </div>
 
-    <section>
-        <h2>خدمات التشطيب والتجهيز</h2>
-        <div class="services">
-            <div class="box">
-                <h3>تشطيب فندقي</h3>
-                <p>خامات ممتازة وتصميمات حديثة</p>
-            </div>
-            <div class="box">
-                <h3>تشطيب اقتصادي</h3>
-                <p>أقل تكلفة بأعلى جودة</p>
-            </div>
-        </div>
-    </section>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+                    <!-- Balance Finish Package -->
+                    <div style="border: 1px solid #ccc; border-radius: 10px; padding: 20px; width: 300px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-align: center;">
+                        <img src="services/Balance.jpg" alt="Balance Finish" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+                        <button style="all: unset; cursor: pointer;" onclick="document.getElementById('balance-finish-details').scrollIntoView({ behavior: 'smooth' });">
+                            <h2 style="text-align: center; color: #28a745;">Balance Finish</h2>
+                            <h3 style="text-align: center; color: #333;">الباقة المتوسطة</h3>
+                            <p style="text-align: center; color: #555;">تشطيب كامل بمستوى متوسط ممتاز.</p>
+                        </button>
+                        <button style="margin-top: 10px; background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px;" onclick="document.getElementById('balance-finish-details').scrollIntoView({ behavior: 'smooth' });">تفاصيل الباقة</button>
+                    </div>
 
-    <footer>
-        <p>© 2025 Infinity. جميع الحقوق محفوظة.</p>
-    </footer>
+                    <!-- Smart Start Package -->
+                    <div style="border: 1px solid #ccc; border-radius: 10px; padding: 20px; width: 300px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-align: center;">
+                        <img src="services/smart.jpg" alt="Smart Start" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+                        <button style="all: unset; cursor: pointer;" onclick="document.getElementById('smart-start-details').scrollIntoView({ behavior: 'smooth' });">
+                            <h2 style="text-align: center; color: #007bff;">Smart Start</h2>
+                            <h3 style="text-align: center; color: #333;">الباقة الاقتصادية</h3>
+                            <p style="text-align: center; color: #555;">تشطيب اقتصادي بجودة مناسبة وسرعة في التنفيذ.</p>
+                        </button>
+                        <button style="margin-top: 10px; background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px;" onclick="document.getElementById('smart-start-details').scrollIntoView({ behavior: 'smooth' });">تفاصيل الباقة</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Royal Touch Details -->
+            <section id="royal-touch-details" style="margin-top: 80px;">
+                <h2 style="text-align: center; color: #ffc107;">Royal Touch - الباقة الفاخرة</h2>
+                <p style="text-align: center; color: #555;">تشطيب فاخر بخامات عالية الجودة وتصميم داخلي خاص.</p>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+                    <img src="services/Royal.jpg" alt="Royal Touch Example 1" style="width: 300px; border-radius: 10px;">
+                    <img src="services/Royal.jpg" alt="Royal Touch Example 2" style="width: 300px; border-radius: 10px;">
+                    <img src="services/Royal.jpg" alt="Royal Touch Example 3" style="width: 300px; border-radius: 10px;">
+                </div>
+                <button style="margin-top: 20px; background-color: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px;" onclick="window.open('https://wa.me/201065173490?text=أرغب%20في%20حجز%20الباقة%20الفاخرة%20 (Royal%20Touch)', '_blank');">احجز الباقة الآن</button>
+            </section>
+
+            <!-- Smart Start Details -->
+            <section id="smart-start-details" style="margin-top: 80px;">
+                <h2 style="text-align: center; color: #007bff;">Smart Start - الباقة الاقتصادية</h2>
+                <p style="text-align: center; color: #555;">تشطيب اقتصادي بجودة مناسبة وسرعة في التنفيذ.</p>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+                    <img src="services/smart.jpg" alt="Smart Start Example 1" style="width: 300px; border-radius: 10px;">
+                    <img src="services/smart.jpg" alt="Smart Start Example 2" style="width: 300px; border-radius: 10px;">
+                    <img src="services/smart.jpg" alt="Smart Start Example 3" style="width: 300px; border-radius: 10px;">
+                </div>
+                <button style="margin-top: 20px; background-color: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px;" onclick="window.open('https://wa.me/201065173490?text=أرغب%20في%20حجز%20الباقة%20الاقتصادية%20 (Smart%20Start)', '_blank');">احجز الباقة الآن</button>
+            </section>
+
+            <!-- Balance Finish Details -->
+            <section id="balance-finish-details" style="margin-top: 80px;">
+                <h2 style="text-align: center; color: #28a745;">Balance Finish - الباقة المتوسطة</h2>
+                <p style="text-align: center; color: #555;">تشطيب كامل بمستوى متوسط ممتاز.</p>
+                <div style="display: flex; flex-wrap:wrap; justify-content: center; gap: 20px;">
+                    <img src="services/Balance.jpg" alt="Balance Finish Example 1" style="width: 300px; border-radius: 10px;">
+                    <img src="services/Balance.jpg" alt="Balance Finish Example 2" style="width: 300px; border-radius: 10px;">
+                    <img src="services/Balance.jpg" alt="Balance Finish Example 3" style="width: 300px; border-radius: 10px;">
+                </div>
+                <button style="margin-top: 20px; background-color: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px;" onclick="window.open('https://wa.me/201065173490?text=أرغب%20في%20حجز%20الباقة%20المتوسطة%20 (Balance%20Finish)', '_blank');">احجز الباقة الآن</button>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="logo-container">
+                    <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
+                    <h1>Infinity - شقق وتشطيبات</h1>
+                </div>
+                <p>© 2025 Infinity. جميع الحقوق محفوظة.</p>
+                <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">العودة إلى الأعلى</button>
+            </div>
+        </footer>
+        
+        <script>
+            // Apply ScrollReveal animations
+            ScrollReveal().reveal('header', { duration: 1000, origin: 'top', distance: '50px' });
+            ScrollReveal().reveal('nav', { duration: 1000, origin: 'bottom', distance: '50px', delay: 200 });
+            ScrollReveal().reveal('.properties .box', { duration: 1000, origin: 'bottom', distance: '50px', interval: 200 });
+            ScrollReveal().reveal('footer', { duration: 1000, origin: 'bottom', distance: '50px', delay: 600 });
+        </script>
 </body>
 </html>
+
+

@@ -94,17 +94,16 @@
             <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
             <h1>Infinity - شقق وتشطيبات</h1>
         </div>
+        <nav>
+            <a href="index.html" class="active">الرئيسية</a>
+            <a href="properties.html">الشقق</a>
+            <a href="services.html">التشطيبات</a>
+            <a href="furniture.html">الأثاث</a>
+            <a href="about.html">من نحن</a>
+            <a href="contact.html">تواصل معنا</a>
+        </nav>
     </header>
-    <nav>
-        <!-- Navigation links -->
-        <a href="index.html">الرئيسية</a>
-        <a href="properties.html">الشقق</a>
-        <a href="services.html">التشطيبات</a>
-        <a href="about.html">من نحن</a>
-        <a href="contact.html">تواصل معنا</a>
-    </nav>
 
-    <!-- Banner Section -->
     <section class="banner">
         <h2>اختر موقع شقتك وحدد السعر</h2>
         <form class="filter-form">
@@ -151,8 +150,29 @@
     <section class="hero">
         <h2>مرحباً بك في Infinity</h2>
         <p>نحن هنا لمساعدتك في العثور على شقة أحلامك وتشطيبها بأعلى جودة.</p>
+        <button class="cta-button" onclick="window.location.href='properties.html'">استعرض الشقق</button>
     </section>
 
+    <section class="features">
+        <h2>لماذا تختار Infinity؟</h2>
+        <div class="feature-cards">
+            <div class="card">
+                <img src="" alt="جودة عالية">
+                <h3>جودة عالية</h3>
+                <p>نضمن لك أفضل جودة في التشطيبات والخدمات.</p>
+            </div>
+            <div class="card">
+                <img src="" alt="دعم مستمر">
+                <h3>دعم مستمر</h3>
+                <p>فريقنا متاح دائماً للإجابة على استفساراتك.</p>
+            </div>
+            <div class="card">
+                <img src="" alt="أسعار تنافسية">
+                <h3>أسعار تنافسية</h3>
+                <p>نقدم لك أفضل الأسعار مع الحفاظ على الجودة.</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Floating Contact Button -->
     <button class="floating-contact" onclick="toggleContactOptions()">تواصل معنا</button>
@@ -162,11 +182,14 @@
     </div>
 
     <footer>
-        <div class="logo-container">
-            <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
-            <h1>Infinity - شقق وتشطيبات</h1>
+        <div class="footer-content">
+            <div class="logo-container">
+                <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
+                <h1>Infinity - شقق وتشطيبات</h1>
+            </div>
+            <p>© 2025 Infinity. جميع الحقوق محفوظة.</p>
+            <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">العودة إلى الأعلى</button>
         </div>
-        <p>© 2025 Infinity. جميع الحقوق محفوظة.</p>
     </footer>
 
 
