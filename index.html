@@ -130,7 +130,7 @@
                     <span id="max-price-display">5,000,000</span> جنيه
                 </div>
             </div>
-            <button type="button" class="filter-button" onclick="filterProperties()">ابحث الآن</button>
+            <button type="button" class="filter-button" onclick="filterProperties(); scrollToResults()">ابحث الآن</button>
         </form>
     </section>
 
@@ -145,29 +145,153 @@
     <section class="hero">
         <h2>مرحباً بك في Infinity</h2>
         <p>نحن هنا لمساعدتك في العثور على شقة أحلامك وتشطيبها بأعلى جودة.</p>
-        <button class="cta-button" onclick="window.location.href='properties.html'">استعرض الشقق</button>
+        <div class="featured-properties">
+            <div class="box">
+                <img src="properties/photo1/one.jpg" alt="شقة في المقطم - الهضبة الوسطى - الحي الثالث" class="property-image">
+                <h3>شقة في المقطم - الهضبة الوسطى - الحي الثالث</h3>
+                <p><strong>السعر:</strong> <span class="original-price">2,800,000 جنيه</span> <span class="discounted-price">2,750,000 جنيه</span></p>
+                <button class="details-button" onclick="window.location.href='details.html?name=شقة في المقطم - الهضبة الوسطى - الحي الثالث'">تفاصيل</button>
+            </div>
+            <div class="box">
+                <img src="properties/photo4/background.jpg" alt="شقه في المقطم الهضبه الوسطي شارع الجامعه بجوار صيداليه دكتور شريف" class="property-image">
+                <h3>شقه في المقطم الهضبه الوسطي شارع الجامعه بجوار صيداليه دكتور شريف</h3>
+                <p><strong>السعر:</strong> 1,950,000 جنيه</p>
+                <button class="details-button" onclick="window.location.href='details.html?name=شقه في المقطم الهضبه الوسطي شارع الجامعه بجوار صيداليه دكتور شريف'">تفاصيل</button>
+            </div>
+        </div>
+        <button class="cta-button" onclick="window.location.href='properties.html'">استعراض باقي الشقق</button>
     </section>
 
     <section class="features">
-        <h2>لماذا تختار Infinity؟</h2>
-        <div class="feature-cards">
-            <div class="card">
-                <img src="" alt="جودة عالية">
-                <h3>جودة عالية</h3>
-                <p>نضمن لك أفضل جودة في التشطيبات والخدمات.</p>
-            </div>
-            <div class="card">
-                <img src="" alt="دعم مستمر">
-                <h3>دعم مستمر</h3>
-                <p>فريقنا متاح دائماً للإجابة على استفساراتك.</p>
-            </div>
-            <div class="card">
-                <img src="" alt="أسعار تنافسية">
-                <h3>أسعار تنافسية</h3>
-                <p>نقدم لك أفضل الأسعار مع الحفاظ على الجودة.</p>
-            </div>
+    <h2>لماذا تختار Infinity؟</h2>
+    <div class="features-container">
+        <div class="feature">
+            <img src="images/high-quality.png" alt="جودة عالية" class="feature-icon">
+            <h3>جودة عالية</h3>
+            <p>نضمن لك أفضل جودة في التشطيبات والخدمات.</p>
         </div>
-    </section>
+        <div class="feature">
+            <img src="images/support.png" alt="دعم مستمر" class="feature-icon">
+            <h3>دعم مستمر</h3>
+            <p>فريقنا متاح دائماً للإجابة على استفساراتك.</p>
+        </div>
+        <div class="feature">
+            <img src="images/competitive-prices.png" alt="أسعار تنافسية" class="feature-icon">
+            <h3>أسعار تنافسية</h3>
+            <p>نقدم لك أفضل الأسعار مع الحفاظ على الجودة.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .features {
+        padding: 40px 20px;
+        text-align: center;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 400px;
+    }
+
+    .features-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .feature {
+        flex: 1 1 300px;
+        max-width: 300px;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+    }
+
+    .feature h3 {
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .feature p {
+        font-size: 14px;
+        color: #555;
+    }
+
+    @media (max-width: 767px) {
+        .features-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .feature {
+            max-width: 100%;
+        }
+    }
+
+    .featured-properties {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin: 20px 0;
+    }
+
+    .featured-properties .box {
+        background: #fff;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: center;
+    }
+
+    .featured-properties .property-image {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    .featured-properties h3 {
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .featured-properties p {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+    .featured-properties .details-button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .featured-properties .details-button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+</style>
 
     <!-- Floating Contact Button -->
     <button class="floating-contact" onclick="toggleContactOptions()">تواصل معنا</button>
@@ -189,103 +313,160 @@
 
 
     <script>
-        // Sample data for properties
-        const properties = [
-            { 
-                location: "المقطم", 
-                sublocation: ["الهضبة الوسطى", "الحي الثالث"], 
-                name: "شقة في المقطم - الهضبة الوسطى - الحي الثالث", 
-                details: "كمبوند: ايزي لايف | 3 غرف نوم، ريسبشن قطعتين، مطبخ كبير، حمام واحد | حمام سباحة، مسجد، جيم | غاز طبيعي، تليفون أرضي، أسانسير | الدور: الخامس", 
-                price: 2750000, 
-                originalPrice: 2800000, 
-                image: "properties/pthoto1/one.jpg" // Ensure this path is correct
-            },
-            { location: "التجمع الخامس", name: "شقة في التجمع الخامس", details: "150 متر | 3 غرف | 2 حمام", price: 1500000 },
-            { location: "التجمع التالت", name: "شقة في التجمع التالت", details: "140 متر | 3 غرف | 2 حمام", price: 1200000 },
-            { location: "المقطم", sublocation: ["شارع 9"], name: "شقة في شارع 9", details: "120 متر | 2 غرف | 1 حمام", price: 900000 },
-            {
-                location: "موقع مميز",
-                sublocation: [],
-                name: "شقة جديدة في موقع مميز",
-                details: "تسليم خلال 4 شهور | سعر المتر: 15,000 جنيه",
-                description: "شقة رائعة بتصميم عصري وموقع استراتيجي قريب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية.",
-                price: 15000,
-                image: "properties/photo2/background.jpg"
-            },
-            {
-                location: "المقطم",
-                sublocation: ["الهضبة الوسطى", "الحي الثاني"],
-                name: "شقق في المقطم الهضبه الوسطي الحي التاني",
-                details: "تسليم خلال 4 شهور | سعر المتر: 15,000 جنيه",
-                description: "شقة رائعة بتصميم عصري وموقع استراتيجي قريب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية.",
-                price: 15000,
-                image: "photo-2-inf.jpg/background.jpg"
-            }
-        ];
-
-        // Show sublocation dropdown if "المقطم" is selected
-        function handleLocationChange() {
-            const location = document.getElementById('location').value;
-            const sublocationDropdown = document.getElementById('sublocation');
-            if (location === "المقطم") {
-                sublocationDropdown.style.display = "inline-block";
-            } else {
-                sublocationDropdown.style.display = "none";
-                sublocationDropdown.value = ""; // Reset sublocation
-            }
+    // Sample data for properties (copied from properties.html)
+    const properties = [
+        {
+            location: "المقطم",
+            sublocation: ["الهضبة الوسطى", "الحي الثالث"],
+            name: "شقة في المقطم - الهضبة الوسطى - الحي الثالث",
+            details: "كمبوند: ايزي لايف | 3 غرف نوم، ريسبشن قطعتين، مطبخ كبير، حمام واحد | حمام سباحة، مسجد، جيم | غاز طبيعي، تليفون أرضي، أسانسير | الدور: الخامس",
+            price: 2750000,
+            originalPrice: 2800000,
+            image: "properties/photo1/one.jpg"
+        },
+        {
+            location: "المقطم",
+            sublocation: ["الهضبة الوسطى", "الحي السابع"],
+            name: "شقة في المقطم - الهضبة الوسطى - الحي السابع بجوار صلاح الدين",
+            details: "130 متر | 3 غرف | حمام واحد | تشطيب سوبر لوكس",
+            price: 1850000,
+            image: "properties/photo3/background.jpg"
+        },
+        {
+            location: "المقطم",
+            sublocation: ["الهضبة الوسطى", "الحي الرابع"],
+            name: "شقه في المقطم الهضبه الوسطي الحي الرابع بجوار مدرسه اتون",
+            details: "135 متر | 2 غرف | 1 حمام | نصف تشطيب",
+            price: 1350000,
+            image: "images/apartment-placeholder.jpg"
+        },
+        {
+            location: "المقطم",
+            sublocation: ["الهضبة الوسطى", "الحي السابع"],
+            name: "شقق في المقطم الهضبه الوسطي الحي السابع",
+            details: "2 غرف نوم | 165 متر | نصف تشطيب | تسليم خلال 4 شهور | سعر المتر: 15,000 جنيه",
+            price: 15000,
+            image: "properties/photo2/background.jpg"
+        },
+        {
+            location: "المقطم",
+            sublocation: ["الهضبة الوسطى", "الحي الأول"],
+            name: "شقة دوبلكس في المقطم الهضبةالوسطي الحي الاول اخر شارع البارون",
+            details: "220 متر | 3 غرف | 2 حمام | نصف تشطيب",
+            price: 3150000,
+            image: "images/apartment-placeholder.jpg"
+        },
+        {
+            location: "المقطم",
+            sublocation: ["الهضبة الوسطى", "الحي السابع"],
+            name: "شقه في المقطم الهضبه الوسطي الحي السابع تالت نمره من صلاح الدين",
+            details: "130 متر | 2 غرف | 1 حمام | تشطيب اقتصادي",
+            price: 1550000,
+            image: "images/apartment-placeholder.jpg"
+        },
+        {
+            location: "المقطم",
+            sublocation: ["الهضبة الوسطى", "الحي الخامس"],
+            name: "شقة في المقطم الهضبه الوسطي الحي الخامس ورا ابو حنفي",
+            details: "145 متر | 3 غرف | 1 حمام | نصف تشطيب",
+            price: 1500000,
+            image: "images/apartment-placeholder.jpg"
+        },
+        {
+            location: "المقطم",
+            sublocation: ["الهضبة الوسطى", "الحي الثاني"],
+            name: "شقة في المقطم الهضبه الوسطي الحي التاني بجوار مدرسه رساله",
+            details: "135 متر | 3 غرف | 1 حمام | نصف تشطيب",
+            price: 1900000,
+            image: "images/apartment-placeholder.jpg"
+        },
+        {
+            location: "المقطم",
+            sublocation: ["الهضبة الوسطى", "الحي الأول"],
+            name: "شقتين في المقطم الهضبةالوسطي الحي الاول شارع بنزينه طاقه",
+            details: "200 متر | 3 غرف | 2 حمام | نصف تشطيب",
+            price: 2000000,
+            image: "images/apartment-placeholder.jpg"
+        },
+        {
+            location: "المقطم",
+            sublocation: ["الهضبة الوسطى", "الحي الثاني"],
+            name: "شقتين في المقطم الهضبه الوسطي الحي التاني في شارع مدرسه الواحه",
+            details: "160 متر | 3 غرف | 1 حمام | نصف تشطيب",
+            price: 1700000,
+            image: "images/apartment-placeholder.jpg"
         }
+    ];
 
-        // Update price display
-        function updatePriceDisplay() {
-            const minPrice = document.getElementById('min-price').value;
-            const maxPrice = document.getElementById('max-price').value;
-            document.getElementById('min-price-display').textContent = parseInt(minPrice).toLocaleString();
-            document.getElementById('max-price-display').textContent = parseInt(maxPrice).toLocaleString();
+    // Show sublocation dropdown if "المقطم" is selected
+    function handleLocationChange() {
+        const location = document.getElementById('location').value;
+        const sublocationDropdown = document.getElementById('sublocation');
+        if (location === "المقطم") {
+            sublocationDropdown.style.display = "inline-block";
+        } else {
+            sublocationDropdown.style.display = "none";
+            sublocationDropdown.value = ""; // Reset sublocation
         }
+    }
 
-        // Function to filter properties based on location, sublocation, and price range
-        function filterProperties() {
-            const location = document.getElementById('location').value;
-            const sublocation = document.getElementById('sublocation').value;
-            const minPrice = parseInt(document.getElementById('min-price').value) || 0;
-            const maxPrice = parseInt(document.getElementById('max-price').value) || Infinity;
-            const propertiesContainer = document.getElementById('properties-container');
-            propertiesContainer.innerHTML = ''; // Clear previous results
+    // Update price display
+    function updatePriceDisplay() {
+        const minPrice = document.getElementById('min-price').value;
+        const maxPrice = document.getElementById('max-price').value;
+        document.getElementById('min-price-display').textContent = parseInt(minPrice).toLocaleString();
+        document.getElementById('max-price-display').textContent = parseInt(maxPrice).toLocaleString();
+    }
 
-            if (location) {
-                const filtered = properties.filter(property => {
-                    const matchesLocation = property.location === location;
-                    const matchesSublocation = !sublocation || (Array.isArray(property.sublocation) ? property.sublocation.includes(sublocation) : property.sublocation === sublocation);
-                    const matchesPrice = property.price >= minPrice && property.price <= maxPrice;
-                    return matchesLocation && matchesSublocation && matchesPrice;
+    // Function to filter properties based on location, sublocation, and price range
+    function filterProperties() {
+        const location = document.getElementById('location').value;
+        const sublocation = document.getElementById('sublocation').value;
+        const minPrice = parseInt(document.getElementById('min-price').value) || 0;
+        const maxPrice = parseInt(document.getElementById('max-price').value) || Infinity;
+        const propertiesContainer = document.getElementById('properties-container');
+        propertiesContainer.innerHTML = ''; // Clear previous results
+
+        if (location) {
+            const filtered = properties.filter(property => {
+                const matchesLocation = property.location === location;
+                const matchesSublocation = !sublocation || (Array.isArray(property.sublocation) ? property.sublocation.includes(sublocation) : property.sublocation === sublocation);
+                const matchesPrice = property.price >= minPrice && property.price <= maxPrice;
+                return matchesLocation && matchesSublocation && matchesPrice;
+            });
+
+            if (filtered.length > 0) {
+                filtered.forEach(property => {
+                    const propertyBox = document.createElement('div');
+                    propertyBox.classList.add('box');
+                    propertyBox.innerHTML = `
+                        <img src="${property.image || 'https://via.placeholder.com/300'}" alt="${property.name}" class="property-image">
+                        <h3>${property.name}</h3>
+                        <p>${property.details}</p>
+                        <p><strong>السعر:</strong> ${property.originalPrice ? `<span class="original-price">${property.originalPrice.toLocaleString()} جنيه</span>` : ''} <span class="discounted-price">${property.price.toLocaleString()} جنيه</span></p>
+                        <div class="details">
+                            <button class="details-button" onclick="window.location.href='details.html?name=${encodeURIComponent(property.name)}'">تفاصيل</button>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
+                            <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
+                        </div>
+                    `;
+                    propertiesContainer.appendChild(propertyBox);
                 });
-
-                if (filtered.length > 0) {
-                    filtered.forEach(property => {
-                        const propertyBox = document.createElement('div');
-                        propertyBox.classList.add('box');
-                        propertyBox.innerHTML = `
-                            <img src="${property.image || 'https://via.placeholder.com/300'}" alt="${property.name}" class="property-image">
-                            <h3>${property.name}</h3>
-                            <p>${property.details}</p>
-                            <p><strong>السعر:</strong> ${property.originalPrice ? `<span class="original-price">${property.originalPrice.toLocaleString()} جنيه</span>` : ''} <span class="discounted-price">${property.price.toLocaleString()} جنيه</span></p>
-                            <div class="details">
-                                <button class="details-button" onclick="window.location.href='details.html?name=${encodeURIComponent(property.name)}'">تفاصيل</button>
-                            </div>
-                            <div class="action-buttons">
-                                <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
-                                <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
-                            </div>
-                        `;
-                        propertiesContainer.appendChild(propertyBox);
-                    });
-                } else {
-                    propertiesContainer.innerHTML = '<p>لا توجد شقق متاحة بناءً على المعايير المحددة.</p>';
-                }
             } else {
-                alert('يرجى اختيار الموقع أولاً');
+                propertiesContainer.innerHTML = '<p>لا توجد شقق متاحة بناءً على المعايير المحددة.</p>';
             }
+        } else {
+            alert('يرجى اختيار الموقع أولاً');
         }
+    }
+
+    // Function to scroll to the filtered properties section
+    function scrollToResults() {
+        const resultsSection = document.getElementById('filtered-properties');
+        resultsSection.scrollIntoView({ behavior: 'smooth' });
+    }
 
         // Apply ScrollReveal animations
         ScrollReveal().reveal('header', { duration: 1000, origin: 'top', distance: '50px' });

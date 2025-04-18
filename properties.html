@@ -2,81 +2,67 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="infinity.css">
-  <title>الشقق - Infinity</title>
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <style>
-    /* Responsive Design */
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="infinity.css">
+    <title>الشقق - Infinity</title>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        /* Responsive Design */
 
     /* Small screens (mobile phones) */
-    @media (max-width: 767px) {
-        body {
-            font-size: 14px;
+        @media (max-width: 767px) {
+            body {
+                font-size: 14px;
+            }
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+            header h1 {
+                font-size: 24px;
+                text-align: center;
+            }
+            nav {
+                flex-direction: row;
+                justify-content: center;
+                gap: 14px;
+            }
+            .box {
+                width: 100%; /* Full width for smaller screens */
+                margin: 0 auto;
+            }
+            .properties {
+                grid-template-columns: 1fr;
+            }
+            .banner h2 {
+                font-size: 20px;
+            }
+            .filter-form {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .filter-form select,
+            .filter-form input[type="number"],
+            .filter-button {
+                width: 100%;
+            }
         }
-
-        .logo {
-            width: 50px;
-            height: 50px;
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 20px;
+            }
+            .banner h2 {
+                font-size: 18px;
+            }
+            .box {
+                padding: 15px;
+            }
+            footer p {
+                font-size: 12px;
+            }
         }
-
-        header h1 {
-            font-size: 24px;
-            text-align: center;
-        }
-
-        nav {
-            flex-direction: row; /* Align navigation links side by side */
-            justify-content: center; /* Center the links */
-            gap: 14px; /* Add spacing between links */
-        }
-
-        .box {
-            width: 100%; /* Full width for smaller screens */
-            margin: 0 auto;
-        }
-
-        .properties {
-            grid-template-columns: 1fr; /* Single column layout */
-        }
-
-        .banner h2 {
-            font-size: 20px;
-        }
-
-        .filter-form {
-            flex-direction: column; /* Stack form elements vertically */
-            gap: 15px;
-        }
-
-        .filter-form select,
-        .filter-form input[type="number"],
-        .filter-button {
-            width: 100%; /* Full width for form elements */
-        }
-    }
-
-    /* Extra small screens (very small phones) */
-    @media (max-width: 480px) {
-        header h1 {
-            font-size: 20px;
-        }
-
-        .banner h2 {
-            font-size: 18px;
-        }
-
-        .box {
-            padding: 15px;
-        }
-
-        footer p {
-            font-size: 12px;
-        }
-    }
-  </style>
+    </style>
 </head>
-
 <body>
     <header>
         <div class="logo-container">
@@ -86,7 +72,6 @@
     </header>
 
     <nav>
-        <!-- Navigation links -->
         <a href="index.html">الرئيسية</a>
         <a href="properties.html">الشقق</a>
         <a href="services.html">التشطيبات</a>
@@ -98,16 +83,10 @@
     <section>
         <h2>شقق معروضة للبيع</h2>
         <div class="properties">
-            <!-- Property 1 -->
-            <!-- New property -->
+            <!-- Property Cards -->
             <div class="box">
-                <img src="properties/pthoto1/one.jpg" alt="شقة في المقطم - الهضبة الوسطى - الحي الثالث" class="property-image">
+                <img src="properties/photo1/one.jpg" alt="شقة في المقطم - الهضبة الوسطى - الحي الثالث" class="property-image">
                 <h3>شقة في المقطم - الهضبة الوسطى - الحي الثالث</h3>
-                <p><strong>كمبوند:</strong> ايزي لايف</p>
-                <p><strong>المواصفات:</strong> 3 غرف نوم، ريسبشن قطعتين، مطبخ كبير، حمام واحد</p>
-                <p><strong>الخدمات:</strong> حمام سباحة، مسجد، جيم</p>
-                <p><strong>المرافق:</strong> غاز طبيعي، تليفون أرضي، أسانسير</p>
-                <p><strong>الدور:</strong> الخامس</p>
                 <p><strong>السعر:</strong> <span class="original-price">2,800,000 جنيه</span> <span class="discounted-price">2,750,000 جنيه</span> <small>(تخفيض لمدة أسبوع)</small></p>
                 <div class="details">
                     <button class="details-button" onclick="window.location.href='details.html?name=شقة في المقطم - الهضبة الوسطى - الحي الثالث'">تفاصيل</button>
@@ -120,18 +99,274 @@
                     <strong>الموقع:</strong> <a href="https://maps.app.goo.gl/k1EPaeoouTZ3CxwE6?g_st=ic" class="location-link">اضغط هنا لعرض الموقع</a>
                 </div>
             </div>
-            <!-- New property -->
             <div class="box">
-                <img src="properties/photo2/background.jpg" alt="شقة جديدة" class="property-image">
-                <h3> شقق في المقطم الهضبه الوسطي الحي التاني </h3>
+                <img src="properties/photo2/background.jpg" alt=" شقة جديدة 2" class="property-image" style="width: 100%; height: 400px; border-radius: 10px;">
+                <h3> شقق في المقطم الهضبه الوسطي الحي السابع </h3>
                 <p><strong>المواصفات:</strong> تسليم خلال 4 شهور | سعر المتر: 15,000 جنيه</p>
-                <p>شقة رائعة بتصميم عصري وموقع استراتيجي قريب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية.</p>
                 <div class="details">
-                    <button class="details-button" onclick="window.location.href='details.html?name=شقق في المقطم الهضبه الوسطي الحي التاني'">تفاصيل</button>
+                    <button class="details-button" onclick="window.location.href='details.html?name=شقق في المقطم الهضبه الوسطي الحي السابع'">تفاصيل</button>
                 </div>
                 <div class="action-buttons">
                     <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
                     <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
+                </div>
+            </div>
+            <div class="box">
+                <img src="properties/photo3/background.jpg" alt=" شقة جديدة 3" class="property-image">
+                <h3>شقة في المقطم - الهضبة الوسطى - الحي السابع بجوار صلاح الدين</h3>
+                <p><strong>السعر:</strong> 1,850,000 جنيه</p>
+                <div class="details">
+                    <button class="details-button" onclick="window.location.href='details.html?name=شقة في المقطم - الهضبة الوسطى - الحي السابع بجوار صلاح الدين'">تفاصيل</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
+                    <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
+                </div>
+                <div class="location">
+                    <strong>الموقع:</strong> <a href="https://maps.app.goo.gl/k1EPaeoouTZ3CxwE6?g_st=ic" class="location-link">اضغط هنا لعرض الموقع</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="properties/photo4/background.jpg" alt=" شقة جديدة 4" class="property-image">
+                <h3>شقه في المقطم الهضبه الوسطي شارع الجامعه بجوار صيداليه دكتور شريف</h3>
+                <p><strong>السعر:</strong> 1,950,000 جنيه</p>
+                <div class="details">
+                    <button class="details-button" onclick="window.location.href='details.html?name= شقه في المقطم الهضبه الوسطي شارع الجامعه بجوار صيداليه دكتور شريف '">تفاصيل</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
+                    <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
+                </div>
+                <div class="location">
+                    <strong>الموقع:</strong> <a href="#" class="location-link">اضغط هنا لعرض الموقع</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="properties/photo5/background.jpg" alt=" شقة جديدة 5" class="property-image">
+                <h3> 4 شقق في المقطم الهضبه الوسطي شارع الجامعه الحديثه </h3>
+                <p><strong>السعر:</strong> الاسعار تبداء من 1,150,000 الي 1,500,000 </p>
+                <div class="details">
+                    <button class="details-button" onclick="window.location.href='details.html?name= 4 شقق في المقطم الهضبه الوسطي شارع الجامعه الحديثه'">تفاصيل</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
+                    <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
+                </div>
+                <div class="location">
+                    <strong>الموقع:</strong> <a href="#" class="location-link">اضغط هنا لعرض الموقع</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/apartment-placeholder.jpg" alt=" شقة جديدة 6" class="property-image">
+                <h3> شقه في المقطم الهضبه الوسطي الحي التاني بجوار مسجد عبله الكحلاوي </h3>
+                <p><strong>السعر:</strong> 1,500,000 جنيه</p>
+                <div class="details">
+                    <button class="details-button" onclick="window.location.href='details.html?name=شقه في المقطم الهضبه الوسطي الحي التاني بجوار مسجد عبله الكحلاوي'">تفاصيل</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
+                    <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
+                </div>
+                <div class="location">
+                    <strong>الموقع:</strong> <a href="#" class="location-link">اضغط هنا لعرض الموقع</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/apartment-placeholder.jpg" alt=" شقة جديدة 7" class="property-image">
+                <h3> شقة دوبلكس في المقطم الهضبةالوسطي الحي الاول اخر شارع البارون </h3>
+                <p><strong>السعر:</strong> 3,150,000 جنيه</p>
+                <div class="details">
+                    <button class="details-button" onclick="window.location.href='details.html?name=شقة دوبلكس في المقطم الهضبةالوسطي الحي الاول اخر شارع البارون'">تفاصيل</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
+                    <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
+                </div>
+                <div class="location">
+                    <strong>الموقع:</strong> <a href="#" class="location-link">اضغط هنا لعرض الموقع</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/apartment-placeholder.jpg" alt=" شقة جديدة 8" class="property-image">
+                <h3> شقتين في المقطم الهضبه الوسطي الحي التاني في شارع مدرسه الواحه </h3>
+                <p><strong>السعر:</strong> 1,700,000 جنيه</p>
+                <div class="details">
+                    <button class="details-button" onclick="window.location.href='details.html?name=شقتين في المقطم الهضبه الوسطي الحي التاني في شارع مدرسه الواحه'">تفاصيل</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
+                    <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
+                </div>
+                <div class="location">
+                    <strong>الموقع:</strong> <a href="#" class="location-link">اضغط هنا لعرض الموقع</a>
+                </div>
+            </div>
+            <div class="box sold">
+                <img src="images/apartment-placeholder.jpg" alt=" شقة جديدة 9" class="property-image">
+                <h3> شقه في المقطم الهضبه الوسطي الحي الرابع بجوار مدرسه اتون </h3>
+                <p><strong>السعر:</strong> 1,350,000 جنيه</p>
+                <div class="sold-banner">تم البيع</div>
+                <div class="details">
+                    <button class="details-button" disabled>تفاصيل</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="whatsapp-button" disabled>واتساب</button>
+                    <button class="visit-button" disabled>احجز زيارة مجاناً</button>
+                </div>
+            </div>
+            <div class="box sold">
+                <img src="images/apartment-placeholder.jpg" alt=" شقة جديدة 10" class="property-image">
+                <h3> شقة في المقطم شارع 9 الرئيسي </h3>
+                <p><strong>السعر:</strong> 2,300,000 جنيه</p>
+                <div class="sold-banner">تم البيع</div>
+                <div class="details">
+                    <button class="details-button" disabled>تفاصيل</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="whatsapp-button" disabled>واتساب</button>
+                    <button class="visit-button" disabled>احجز زيارة مجاناً</button>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/apartment-placeholder.jpg" alt=" شقة جديدة 11" class="property-image">
+                <h3> شقه في المقطم الهضبه الوسطي الحي السابع تالت نمره من صلاح الدين </h3>
+                <p><strong>السعر:</strong> 1,550,000 جنيه</p>
+                <div class="details">
+                    <button class="details-button" onclick="window.location.href='details.html?name=شقه في المقطم الهضبه الوسطي الحي السابع تالت نمره من صلاح الدين'">تفاصيل</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
+                    <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
+                </div>
+                <div class="location">
+                    <strong>الموقع:</strong> <a href="#" class="location-link">اضغط هنا لعرض الموقع</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/apartment-placeholder.jpg" alt=" شقة جديدة 12" class="property-image">
+                <h3> شقتين في المقطم الهضبةالوسطي الحي الاول شارع بنزينه طاقه </h3>
+                <p><strong>السعر:</strong> من 2,000,000 الي 2,200,000</p>
+                <div class="details">
+                    <button class="details-button" onclick="window.location.href='details.html?name=شقتين في المقطم الهضبةالوسطي الحي الاول شارع بنزينه طاقه'">تفاصيل</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
+                    <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
+                </div>
+                <div class="location">
+                    <strong>الموقع:</strong> <a href="#" class="location-link">اضغط هنا لعرض الموقع</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/apartment-placeholder.jpg" alt=" شقة جديدة 13" class="property-image">
+                <h3> شقة في المقطم الهضبه الوسطي الحي الخامس ورا ابو حنفي </h3>
+                <p><strong>السعر:</strong> 1,500,000 جنيه</p>
+                <div class="details">
+                    <button class="details-button" onclick="window.location.href='details.html?name=شقة في المقطم الهضبه الوسطي الحي الخامس ورا ابو حنفي'">تفاصيل</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
+                    <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
+                </div>
+                <div class="location">
+                    <strong>الموقع:</strong> <a href="#" class="location-link">اضغط هنا لعرض الموقع</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/apartment-placeholder.jpg" alt=" شقة جديدة 14" class="property-image">
+                <h3> شقة في المقطم الهضبه الوسطي الحي التاني بجوار مدرسه رساله </h3>
+                <p><strong>السعر:</strong> 1,900,000 جنيه</p>
+                <div class="details">
+                    <button class="details-button" onclick="window.location.href='details.html?name=شقة في المقطم الهضبه الوسطي الحي التاني بجوار مدرسه رساله'">تفاصيل</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
+                    <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
+                </div>
+                <div class="location">
+                    <strong>الموقع:</strong> <a href="#" class="location-link">اضغط هنا لعرض الموقع</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/apartment-placeholder.jpg" alt=" شقة جديدة 15" class="property-image">
+                <h3> شقق في المقطم الهضبه الوسطي في شارع صلاح الدين </h3>
+                <p><strong>السعر:</strong>  جنيه</p>
+                <div class="details">
+                    <button class="details-button" onclick="window.location.href='details.html?name=شقق في المقطم الهضبه الوسطي في شارع صلاح الدين'">تفاصيل</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
+                    <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
+                </div>
+                <div class="location">
+                    <strong>الموقع:</strong> <a href="#" class="location-link">اضغط هنا لعرض الموقع</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/apartment-placeholder.jpg" alt=" شقة جديدة 16" class="property-image">
+                <h3> المقطم الهضبه الوسطي الحي التاني قريب من السلاب </h3>
+                <p><strong>السعر:</strong> 16500 جنيه للمتر  </p>
+                <div class="details">
+                    <button class="details-button" onclick="window.location.href='details.html?name=المقطم الهضبه الوسطي الحي التاني قريب من السلاب'">تفاصيل</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
+                    <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
+                </div>
+                <div class="location">
+                    <strong>الموقع:</strong> <a href="#" class="location-link">اضغط هنا لعرض الموقع</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/apartment-placeholder.jpg" alt=" شقة جديدة 17" class="property-image">
+                <h3> شقق في المقطم الهضبه العاليا بجوار الزهور </h3>
+                <p><strong>السعر:</strong> 16,500 جنيه للمتر</p>
+                <div class="details">
+                    <button class="details-button" onclick="window.location.href='details.html?name=شقق في المقطم الهضبه العاليا بجوار الزهور'">تفاصيل</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
+                    <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
+                </div>
+                <div class="location">
+                    <strong>الموقع:</strong> <a href="#" class="location-link">اضغط هنا لعرض الموقع</a>
+                </div>
+            </div>
+        </div>
+        <button class="back-button" onclick="history.back()">الرجوع إلى الخلف</button>
+    </section>
+
+    <section id="sold-properties" style="margin-top: 50px; padding: 20px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <h2 style="text-align: center; color: #333; margin-bottom: 30px;">الشقق التي تم بيعها وآراء العملاء</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            <!-- Sold Property 1 -->
+            <div style="border: 1px solid #ccc; border-radius: 10px; padding: 20px; width: 300px; background-color: #fff; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-align: center;">
+                <img src="images/apartment-placeholder.jpg" alt="شقة في المقطم شارع 9 الرئيسي" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+                <h3 style="color: #333; margin-bottom: 10px;">شقة في المقطم شارع 9 الرئيسي</h3>
+                <p style="font-style: italic; color: #555; margin-bottom: 10px;">"تعامل راقٍ وخدمة ممتازة. الشقة كانت كما هو موضح تماماً. شكراً Infinity!"</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <img src="images/user-placeholder.jpg" alt="أحمد محمد" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                    <p style="color: #007bff; font-weight: bold; margin: 0;">- أحمد محمد</p>
+                </div>
+            </div>
+            <!-- Sold Property 2 -->
+            <div style="border: 1px solid #ccc; border-radius: 10px; padding: 20px; width: 300px; background-color: #fff; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-align: center;">
+                <img src="images/apartment-placeholder.jpg" alt="شقه في المقطم الهضبه الوسطي الحي الرابع بجوار مدرسه اتون" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+                <h3 style="color: #333; margin-bottom: 10px;">شقه في المقطم الهضبه الوسطي الحي الرابع بجوار مدرسه اتون</h3>
+                <p style="font-style: italic; color: #555; margin-bottom: 10px;">"الشقة كانت رائعة والخدمة ممتازة. أنصح الجميع بالتعامل مع Infinity."</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <img src="images/user-placeholder.jpg" alt="سارة علي" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                    <p style="color: #007bff; font-weight: bold; margin: 0;">- سارة علي</p>
+                </div>
+            </div>
+            <!-- Sold Property 3 -->
+            <div style="border: 1px solid #ccc; border-radius: 10px; padding: 20px; width: 300px; background-color: #fff; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-align: center;">
+                <img src="images/apartment-placeholder.jpg" alt="شقة في المقطم الهضبة الوسطى الحي الخامس" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+                <h3 style="color: #333; margin-bottom: 10px;">شقة في المقطم الهضبة الوسطى الحي الخامس</h3>
+                <p style="font-style: italic; color: #555; margin-bottom: 10px;">"خدمة احترافية وسرعة في التنفيذ. تجربة رائعة مع Infinity."</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <img src="images/user-placeholder.jpg" alt="خالد حسن" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                    <p style="color: #007bff; font-weight: bold; margin: 0;">- خالد حسن</p>
                 </div>
             </div>
         </div>
@@ -155,5 +390,25 @@
         ScrollReveal().reveal('.properties .box', { duration: 1000, origin: 'bottom', distance: '50px', interval: 200 });
         ScrollReveal().reveal('footer', { duration: 1000, origin: 'bottom', distance: '50px', delay: 600 });
     </script>
+
+    <style>
+        .back-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+    </style>
 </body>
 </html>

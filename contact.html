@@ -73,6 +73,24 @@
             font-size: 12px;
         }
     }
+
+    .back-button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 20px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .back-button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
   </style>
 </head>
 
@@ -105,6 +123,7 @@
             <button class="instagram-button" onclick="window.open('https://www.instagram.com/', '_blank')">إنستجرام</button>
             <button class="tiktok-button" onclick="window.open('https://www.tiktok.com/', '_blank')">تيك توك</button>
         </div>
+        <button class="back-button" onclick="history.back()">الرجوع إلى الخلف</button>
     </section>
 
     <footer>

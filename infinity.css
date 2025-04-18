@@ -1327,3 +1327,31 @@ footer p {
     }
 }
 
+/* Sold property styling */
+.box.sold {
+    position: relative;
+    opacity: 0.6; /* Dim the box to indicate it's sold */
+    pointer-events: none; /* Disable interactions */
+}
+
+.sold-banner {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.box.sold .details-button,
+.box.sold .whatsapp-button,
+.box.sold .visit-button {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+

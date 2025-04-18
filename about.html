@@ -73,6 +73,24 @@
             font-size: 12px;
         }
     }
+
+    .back-button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 20px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .back-button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
   </style>
 </head>
 
@@ -98,6 +116,7 @@
         <h2>من نحن</h2>
         <p>Infinity هي شركة متخصصة في بيع الشقق وتقديم خدمات التشطيب بأعلى جودة. تأسست الشركة عام 2010، ومنذ ذلك الحين نعمل على تحقيق أحلام عملائنا في امتلاك منزل مثالي.</p>
         <p>نحن نؤمن بأن المنزل ليس مجرد مكان، بل هو حياة كاملة. لذلك، نقدم خدماتنا بأعلى معايير الجودة والاحترافية.</p>
+        <button class="back-button" onclick="history.back()">الرجوع إلى الخلف</button>
     </section>
 
     <footer>

@@ -78,6 +78,24 @@
             font-size: 12px;
         }
     }
+
+    .back-button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 20px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .back-button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
   </style>
 </head>
 
@@ -127,6 +145,7 @@
                 <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
                 <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
             </div>
+            <button class="back-button" onclick="history.back()">الرجوع إلى الخلف</button>
         </div>
     </section>
 
@@ -155,6 +174,7 @@
                 description: "شقة رائعة في كمبوند ايزي لايف بموقع مميز في الحي الثالث. تتميز الشقة بتصميم عصري ومساحات واسعة تناسب العائلات.",
                 price: 2750000,
                 features: [
+                    "الدور الخامس",
                     "3 غرف نوم واسعة",
                     "ريسبشن قطعتين",
                     "مطبخ كبير مجهز",
@@ -166,17 +186,21 @@
                     "إطلالة رائعة على المساحات الخضراء"
                 ],
                 images: [
-                    "photo-inf.jpg/one.jpg",
-                    "photo-inf.jpg/two.jpg",
-                    "photo-inf.jpg/three.jpg"
+                    "properties/photo1/one.jpg",
+                    "properties/photo1/two.jpg",
+                    "properties/photo1/three.jpg",
+                    "properties/photo1/four.jpg",
+                    "properties/photo1/five.jpg",
+                    "properties/photo1/six.jpg",
+                    "properties/photo1/seven.jpg",
                 ]
             },
             {
-                name: "شقق في المقطم الهضبه الوسطي الحي التاني",
+                name: "شقق في المقطم الهضبه الوسطي الحي السابع",
                 description: "شقة مميزة في الحي الثاني بموقع استراتيجي قريب من الخدمات. تصميم عصري يناسب العائلات.",
-                description:"سعر المتر 15000 جنيه ومساحه الشقق 165 متر كل الادوار متاحه ماعدا الاول والرابع",
-                price: 15000 ,
+                price: 15000,
                 features: [
+                    "مساحة 120 متر و 170 متر ",
                     "2 غرف نوم",
                     "ريسبشن واسع",
                     "مطبخ مفتوح",
@@ -184,13 +208,365 @@
                     "إطلالة رائعة على المدينة"
                 ],
                 images: [
-                    "photo-2-inf.jpg/background.jpg",
-                    "photo-2-inf.jpg/2.jpg",
-                    "photo-2-inf.jpg/3.jpg",
-                    "photo-2-inf.jpg/4.jpg",
+                    "properties/photo2/background.jpg",
+                    "properties/photo2/2.jpg",
+                    "properties/photo2/3.jpg",
+                    "properties/photo2/4.jpg",
                 ]
             },
+            {
+                name: "شقة في المقطم - الهضبة الوسطى - الحي السابع بجوار صلاح الدين",
+                description: "شقة مميزة بتصميم عصري وتشطيب فاخر، تقع في موقع استراتيجي بالقرب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية. تتميز بمساحة واسعة وتوزيع مثالي للغرف، مما يجعلها خيارًا رائعًا للسكن أو الاستثمار.",
+                price: 1850000,
+                features: [
+                    "الدور الأرضي مرتفع",
+                    "تشطيب سوبر لوكس",
+                    "مساحة 130 متر",
+                    "3 غرف نوم",
+                    "حمام واحد",
+                    "عدد الشقق في الدور: شقتان فقط"
+                ],
+                images: [
+                    "properties/photo3/background.jpg",
+                    "properties/photo3/2.jpg",
+                    "properties/photo3/3.jpg",
+                    "properties/photo3/4.jpg",
+                    "properties/photo3/5.jpg",
+                    "properties/photo3/6.jpg",
+                    "properties/photo3/7.jpg",
+                    "properties/photo3/8.jpg",
+                    "properties/photo3/9.jpg",
+                    "properties/photo3/10.jpg",
 
+                ]
+            },
+            {
+                name: "شقه في المقطم الهضبه الوسطي شارع الجامعه بجوار صيداليه دكتور شريف",
+                description: "شقة مميزة بتصميم عصري وتشطيب فاخر، تقع في موقع استراتيجي بالقرب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية. تتميز بمساحة واسعة وتوزيع مثالي للغرف، مما يجعلها خيارًا رائعًا للسكن أو الاستثمار.",
+                price: 1950000,
+                features: [
+                    "الدور الاول",
+                    "تشطيب سوبر لوكس",
+                    "مساحة 140 متر",
+                    "2 غرف نوم",
+                    "حمام واحد",
+                    "عدد الشقق في الدور: شقتان فقط"
+                ],
+                images: [
+                    "properties/photo4/background.jpg",
+                    "properties/photo4/2.jpg",
+                    "properties/photo4/3.jpg",
+                    "properties/photo4/4.jpg",
+                    "properties/photo4/5.jpg",
+                    "properties/photo4/6.jpg",
+                    "properties/photo4/7.jpg",
+                    "properties/photo4/8.jpg",
+                    "properties/photo4/9.jpg",
+                    "properties/photo4/10.jpg",
+                    "properties/photo4/11.jpg",
+                ]
+            },
+            {
+                name: "شقه في المقطم الهضبه الوسطي الحي التاني بجوار مسجد عبله الكحلاوي",
+                description: "شقه مميزة، تقع في موقع استراتيجي بالقرب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية. تتميز بمساحة واسعة وتوزيع مثالي للغرف، مما يجعلها خيارًا رائعًا للسكن أو الاستثمار.",
+                price: 1500000,
+                features: [
+                    "الدور 6",
+                    "نصف تشطيب",
+                    "مساحة 160 متر",
+                    "3 غرف نوم",
+                    "2 حمام",
+                    "عدد الشقق في الدور: شقتان فقط"
+                ],
+                images: [
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                ]
+            }, 
+            {
+                name: "شقة دوبلكس في المقطم الهضبةالوسطي الحي الاول اخر شارع البارون",
+                description: "شقه دوبلكس مميزة ، تقع في موقع استراتيجي بالقرب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية. تتميز بمساحة واسعة وتوزيع مثالي للغرف، مما يجعلها خيارًا رائعًا للسكن أو الاستثمار.",
+                price: 3150000,
+                features: [
+                    "الدور 3و4",
+                    "نصف تشطيب",
+                    "مساحة 220 متر للدورين",
+                    "3 غرف نوم",
+                    "2 حمام",
+                    "عدد الشقق في الدور: 4 شقق"
+                ],
+                images: [
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                ]
+            },
+            {
+                name: "شقتين في المقطم الهضبه الوسطي الحي التاني في شارع مدرسه الواحه",
+                description: "شقق مميزة، تقع في موقع استراتيجي بالقرب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية. تتميز بمساحة واسعة وتوزيع مثالي للغرف، مما يجعلها خيارًا رائعًا للسكن أو الاستثمار.",
+                price: 1700000,
+                features: [
+                    "الدور 4",
+                    "نصف تشطيب",
+                    "مساحة 160 متر",
+                    "3 غرف نوم",
+                    "1 حمام",
+                    "عدد الشقق في الدور: شقتان فقط"
+                ],
+                images: [
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                ]
+            },
+            {
+                name: "شقه في المقطم الهضبه الوسطي الحي الرابع بجوار مدرسه اتون",
+                description: "شقه مميزة، تقع في موقع استراتيجي بالقرب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية. تتميز بمساحة واسعة وتوزيع مثالي للغرف، مما يجعلها خيارًا رائعًا للسكن أو الاستثمار.",
+                price: 1350000,
+                features: [
+                    "الدور 1",
+                    "نصف تشطيب",
+                    "مساحة 135 متر",
+                    "2 غرف نوم",
+                    "1 حمام",
+                    "عدد الشقق في الدور: شقتان فقط"
+                ],
+                images: [
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                ]
+            },
+            {
+                name: "شقة في المقطم شارع 9 الرئيسي",
+                description: "شقه مميزة، تقع في موقع استراتيجي بالقرب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية. تتميز بمساحة واسعة وتوزيع مثالي للغرف، مما يجعلها خيارًا رائعًا للسكن أو الاستثمار.",
+                price: 2300000,
+                features: [
+                    "الدور 4",
+                    "نصف تشطيب",
+                    "مساحة 160 متر",
+                    "3 غرف نوم",
+                    "2 حمام",
+                    "عدد الشقق في الدور: شقتان فقط"
+                ],
+                images: [
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                ]
+            },
+            {
+                name: "شقه في المقطم الهضبه الوسطي الحي السابع تالت نمره من صلاح الدين",
+                description: "شقه مميزة، تقع في موقع استراتيجي بالقرب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية. تتميز بمساحة واسعة وتوزيع مثالي للغرف، مما يجعلها خيارًا رائعًا للسكن أو الاستثمار.",
+                price: 1550000,
+                features: [
+                    "الدور ارضي مرتفع",
+                    "تشطيب اقتصادي",
+                    "مساحة 130 متر",
+                    "2 غرف نوم",
+                    "1 حمام",
+                    "عدد الشقق في الدور: شقتان فقط"
+                ],
+                images: [
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                ]
+            },
+            {
+                name: "شقتين في المقطم الهضبةالوسطي الحي الاول شارع بنزينه طاقه",
+                description: "شقق مميزة، تقع في موقع استراتيجي بالقرب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية. تتميز بمساحة واسعة وتوزيع مثالي للغرف، مما يجعلها خيارًا رائعًا للسكن أو الاستثمار.",
+                price: 2000000,
+                features: [
+                    "شقه في الدور السادس و شقه في الدور السابع",
+                    "نصف تشطيب",
+                    "مساحة 200 متر",
+                    "3 غرف نوم",
+                    "2 حمام",
+                    "عدد الشقق في الدور: شقتان فقط"
+                ],
+                images: [
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                ]
+            },
+            {
+                name: "شقة في المقطم الهضبه الوسطي الحي الخامس ورا ابو حنفي",
+                description: "شقه مميزة، تقع في موقع استراتيجي بالقرب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية. تتميز بمساحة واسعة وتوزيع مثالي للغرف، مما يجعلها خيارًا رائعًا للسكن أو الاستثمار.",
+                price: 1500000,
+                features: [
+                    "شقه في الدور 6",
+                    "نصف تشطيب",
+                    "مساحة 145 متر",
+                    "3 غرف نوم",
+                    "1 حمام",
+                    "عدد الشقق في الدور: شقتان فقط"
+                ],
+                images: [
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                ]
+            },
+            {
+                name: "شقة في المقطم الهضبه الوسطي الحي التاني بجوار مدرسه رساله",
+                description: "شقه مميزة، تقع في موقع استراتيجي بالقرب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية. تتميز بمساحة واسعة وتوزيع مثالي للغرف، مما يجعلها خيارًا رائعًا للسكن أو الاستثمار.",
+                price: 1900000,
+                features: [
+                    "شقه في الدور 1",
+                    "نصف تشطيب",
+                    "مساحة 135 متر",
+                    "3 غرف نوم",
+                    "1 حمام",
+                    "عدد الشقق في الدور: 4"
+                ],
+                images: [
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                ]
+            },
+            {
+                name: "شقق في المقطم الهضبه الوسطي في شارع صلاح الدين",
+                description: "شقق مميزة، تقع في موقع استراتيجي بالقرب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية. تتميز بمساحة واسعة وتوزيع مثالي للغرف، مما يجعلها خيارًا رائعًا للسكن أو الاستثمار.",
+                price: 15000,
+                features: [
+                    "كل الادوار متاحه العماره 7 ادوار",
+                    "نصف تشطيب",
+                    "مساحة 150 متر",
+                    "3 غرف نوم",
+                    "2 حمام",
+                    "عدد الشقق في الدور: 2"
+                ],
+                images: [
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                ]
+            },
+            {
+                name: "شقق في المقطم الهضبه العاليا بجوار الزهور",
+                description: "شقق مميزة، تقع في موقع استراتيجي بالقرب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية. تتميز بمساحة واسعة وتوزيع مثالي للغرف، مما يجعلها خيارًا رائعًا للسكن أو الاستثمار.",
+                price: 16500,
+                features: [
+                    "كل الادوار متاحه العماره 7 ادوار",
+                    "نصف تشطيب",
+                    "مساحة 150 متر و175 متر و 230 متر ",
+                    "3 غرف نوم",
+                    "2 حمام",
+                    "عدد الشقق في الدور: 4"
+                ],
+                images: [
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                    "properties/photo",
+                ]
+            },
         ]
         
 

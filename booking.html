@@ -78,6 +78,24 @@
             font-size: 12px;
         }
     }
+
+    .back-button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 20px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .back-button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
   </style>
 </head>
 
@@ -113,6 +131,7 @@
         <p id="confirmation-message" style="display: none; color: green; font-weight: bold; margin-top: 20px;">
             تم إرسال بياناتك بنجاح. سنتواصل معك في أقرب وقت ممكن.
         </p>
+        <button class="back-button" onclick="history.back()">الرجوع إلى الخلف</button>
     </section>
 
     <footer>
@@ -133,7 +152,7 @@
             const phone = document.getElementById('phone').value;
 
             // Prepare email content
-            const email = "joegames080@gmail.com"; // Replace with your email
+            const email = "Infinity.state00@gmail.com"; // Replace with your email
             const subject = "طلب حجز زيارة";
             const body = `مرحباً،\n\nتم تقديم طلب حجز زيارة.\n\nالتفاصيل:\nالاسم: ${name}\nرقم الهاتف: ${phone}\n\nشكراً.`;
 
