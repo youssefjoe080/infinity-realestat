@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="infinity.css">
+    <title>لوحة التحكم - Infinity</title>
+    <style>
+        /* From Uiverse.io by MikeAndrewDesigner */
+        .login {
+            width: 340px;
+            height: 400px;
+            background: #2c2c2c;
+            padding: 47px;
+            padding-bottom: 57px;
+            color: #fff;
+            border-radius: 17px;
+            padding-bottom: 50px;
+            font-size: 1.3em;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 50px auto;
+        }
+
+        .login input[type="text"],
+        .login input[type="password"] {
+            opacity: 1;
+            display: block;
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 13px 18px;
+            margin: 20px 0 0 0;
+            font-size: 0.8em;
+            border-radius: 100px;
+            background: #3c3c3c;
+            color: #fff;
+        }
+
+        .login input:focus {
+            animation: bounce 1s;
+            -webkit-appearance: none;
+        }
+
+        .login input[type=submit],
+        .login input[type=button],
+        .h1 {
+            border: 0;
+            outline: 0;
+            width: 100%;
+            padding: 13px;
+            margin: 40px 0 0 0;
+            border-radius: 500px;
+            font-weight: 600;
+            animation: bounce2 1.6s;
+        }
+
+        .h1 {
+            padding: 0;
+            position: relative;
+            top: -35px;
+            display: block;
+            margin-bottom: -0px;
+            font-size: 1.3em;
+        }
+
+        .btn {
+            background: linear-gradient(144deg, #000, #5b42f3 50%, #000);
+            color: #fff;
+            padding: 16px !important;
+        }
+
+        .btn:hover {
+            background: linear-gradient(144deg, #1e1e1e , 20%,#1e1e1e 50%,#1e1e1e );
+            color: rgb(255, 255, 255);
+            padding: 16px !important;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .login input[type=text] {
+            animation: bounce 1s;
+            -webkit-appearance: none;
+        }
+
+        .login input[type=password] {
+            animation: bounce1 1.3s;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .login {
+                width: 70%;
+                padding: 3em;
+            }
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(-250px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes bounce1 {
+            0% {
+                opacity: 0;
+            }
+
+            40% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes bounce2 {
+            0% {
+                opacity: 0;
+            }
+
+            70% {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+        }
+
+        .forgot-password {
+            display: block;
+            margin-top: 15px;
+            text-align: center;
+            color: #5b42f3;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .toggle-link {
+            display: block;
+            margin-top: 15px;
+            text-align: center;
+            color: #5b42f3;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.3s ease;
+        }
+
+        .toggle-link:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            background-color: #111;
+            color: white;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-hamburger {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            border-radius: 2px;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 250px;
+            height: 100%;
+            background-color: #111;
+            color: white;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+            transition: left 0.3s ease;
+            z-index: 1000;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #333;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 18px;
+            }
+
+            .sidebar a {
+                font-size: 16px;
+            }
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 auto; /* Center the logo */
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .header h1 {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .navbar {
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #f9c000;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                display: none; /* Hide navbar on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-hamburger">
+            <div class="hamburger" onclick="toggleSidebar()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="logo-container">
+                <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
+                <h1>Infinity - لوحة التحكم</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <a href="index.html">الرئيسية</a>
+        <a href="properties.html">الشقق</a>
+        <a href="services.html">التشطيبات</a>
+        <a href="furniture.html">الأثاث</a>
+        <a href="investment.html">الاستثمار</a>
+        <a href="contact.html">تواصل معنا</a>
+        <a href="dashboard.html">لوحه التحكم</a>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <div class="main-content">
+        <section>
+            <div class="login">
+                <div id="user-info" style="text-align: center; margin-bottom: 20px; color: #fff;">غير مسجل الدخول</div>
+                <div id="login-form">
+                    <div class="h1">تسجيل الدخول</div>
+                    <form id="loginForm">
+                        <input placeholder="البريد الإلكتروني" id="login-email" type="text" required>
+                        <input placeholder="كلمة المرور" id="login-password" type="password" required>
+                        <input value="دخول" class="btn" type="submit">
+                    </form>
+                    <a href="#" class="toggle-link" onclick="toggleForms(event)">ليس لديك حساب؟ سجل الآن</a>
+                </div>
+
+                <div id="signup-form" class="hidden">
+                    <div class="h1">إنشاء حساب</div>
+                    <form id="signupForm">
+                        <input placeholder="اسمك" id="signup-name" type="text" required>
+                        <input placeholder="البريد الإلكتروني" id="signup-email" type="text" required>
+                        <input placeholder="كلمة المرور" id="signup-password" type="password" required>
+                        <input value="إنشاء حساب" class="btn" type="submit">
+                    </form>
+                    <a href="#" class="toggle-link" onclick="toggleForms(event)">لديك حساب بالفعل؟ تسجيل الدخول</a>
+                </div>
+
+                <div id="dashboard" style="text-align: center; margin-top: 20px; position: relative;">
+                    <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg"></div>
+                        <h2 class="text-2xl font-bold mb-4" style="color: #fff;">مرحبًا، <span id="dashboard-email"></span></h2>
+                    </div>
+                    <!-- زر تسجيل الخروج -->
+                    <div style="margin-top: 20px;">
+                        <button class="Btn" onclick="logoutUser()">
+                            <div class="sign">
+                                <svg viewBox="0 0 512 512">
+                                    <path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path>
+                                </svg>
+                            </div>
+                            <div class="text">Logout</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="favorites-section" style="margin-top: 50px; padding: 20px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            <h2 style="text-align: center; color: #333; margin-bottom: 30px;">المفضلة</h2>
+            <div id="favorites-container" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                <!-- Favorite items will be dynamically inserted here -->
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo-container">
+                <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
+                <h1>Infinity - شقق وتشطيبات</h1>
+            </div>
+            <p>© 2025 Infinity. جميع الحقوق محفوظة.</p>
+            <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">العودة إلى الأعلى</button>
+        </div>
+    </footer>
+    
+        <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  import { getFirestore, collection, query, where, getDocs, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBsHTQpO-IOIWO-oAgdzaepSp8nUHmvjHw",
+    authDomain: "infinity-state.firebaseapp.com",
+    projectId: "infinity-state",
+    storageBucket: "infinity-state.appspot.com",
+    messagingSenderId: "502933746924",
+    appId: "1:502933746924:web:9de67eb4dfe1dc994821c9"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  // Monitor authentication state
+  onAuthStateChanged(auth, async (user) => {
+    if (user) {
+      document.getElementById("login-form").classList.add("hidden");
+      document.getElementById("signup-form").classList.add("hidden");
+      document.getElementById("dashboard").style.display = "block";
+      document.getElementById("user-info").textContent = "";
+      document.getElementById("dashboard-email").textContent = user.email;
+
+      // Fetch and display favorites
+      const favoritesRef = collection(db, "favorites");
+      const q = query(favoritesRef, where("userId", "==", user.uid));
+      const querySnapshot = await getDocs(q);
+
+      const favoritesContainer = document.getElementById("favorites-container");
+      favoritesContainer.innerHTML = ""; // Clear existing content
+
+      if (querySnapshot.empty) {
+        favoritesContainer.innerHTML = "<p>لا توجد شقق مفضلة بعد.</p>";
+      } else {
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          const div = document.createElement("div");
+          div.style.border = "1px solid #ccc";
+          div.style.borderRadius = "10px";
+          div.style.padding = "15px";
+          div.style.textAlign = "center";
+          div.style.backgroundColor = "#fff";
+          div.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+          div.style.width = "300px";
+
+          div.innerHTML = `
+            <img src="${data.image}" alt="${data.name}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 10px;">
+            <h3>${data.name}</h3>
+            <p>السعر: ${data.price}</p>
+            <div style="display: flex; justify-content: space-between; gap: 10px;">
+              <button class="details-button" style="background-color: #ffc107; color: black; border: none; padding: 10px 30px; border-radius: 5px; cursor: pointer; font-size: 18px;" onclick="window.location.href='details.html?name=${encodeURIComponent(data.name)}'">تفاصيل</button>
+              <button class="remove-from-favorites" style="background-color: #f44336; color: white; border: none; padding: 10px 10px; border-radius: 5px; cursor: pointer; font-size: 14px;" onclick="removeFromFavorites('${doc.id}')">حذف من المفضلة</button>
+            </div>
+          `;
+          favoritesContainer.appendChild(div);
+        });
+      }
+    } else {
+      document.getElementById("login-form").classList.remove("hidden");
+      document.getElementById("signup-form").classList.add("hidden");
+      document.getElementById("dashboard").style.display = "none";
+      document.getElementById("user-info").textContent = "غير مسجل الدخول";
+    }
+  });
+
+  // Remove property from favorites
+  window.removeFromFavorites = async function (docId) {
+    try {
+      await deleteDoc(doc(db, "favorites", docId));
+      alert("تم حذف الشقة من المفضلة.");
+      location.reload(); // Refresh the page to update the favorites list
+    } catch (error) {
+      alert("حدث خطأ أثناء حذف الشقة من المفضلة: " + error.message);
+    }
+  };
+
+  // Login functionality
+  document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const email = document.getElementById("login-email").value;
+    const password = document.getElementById("login-password").value;
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        alert("تم تسجيل الدخول بنجاح.");
+      })
+      .catch((error) => {
+        alert("فشل تسجيل الدخول: " + error.message);
+      });
+  });
+
+  // Signup functionality
+  document.getElementById("signupForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const email = document.getElementById("signup-email").value;
+    const password = document.getElementById("signup-password").value;
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        alert("تم إنشاء الحساب بنجاح.");
+      })
+      .catch((error) => {
+        alert("فشل إنشاء الحساب: " + error.message);
+      });
+  });
+
+  // Logout functionality
+  window.logoutUser = function () {
+    signOut(auth)
+      .then(() => {
+        alert("تم تسجيل الخروج بنجاح.");
+        location.reload();
+      })
+      .catch((error) => {
+        alert("فشل تسجيل الخروج: " + error.message);
+      });
+  };
+
+  // Toggle between login and signup forms
+  window.toggleForms = function (event) {
+    event.preventDefault();
+    document.getElementById("login-form").classList.toggle("hidden");
+    document.getElementById("signup-form").classList.toggle("hidden");
+  };
+</script>
+
+   
+      <script>
+        const loginForm = document.getElementById("login-form");
+        const signupForm = document.getElementById("signup-form");
+        const dashboard = document.getElementById("dashboard");
+        const userInfo = document.getElementById("user-info");
+      
+        // التحقق من حالة تسجيل الدخول
+        onAuthStateChanged(auth, (user) => {
+          if (user) {
+            loginForm.classList.add("hidden");
+            signupForm.classList.add("hidden");
+            dashboard.style.display = "block";
+            userInfo.innerHTML = "";
+            document.getElementById("dashboard-email").textContent = user.email;
+          } else {
+            loginForm.classList.remove("hidden");
+            signupForm.classList.add("hidden");
+            dashboard.style.display = "none";
+            userInfo.textContent = "غير مسجل الدخول";
+          }
+        });
+      
+        // تسجيل الدخول
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+          e.preventDefault();
+          const email = document.getElementById("login-email").value;
+          const password = document.getElementById("login-password").value;
+      
+          signInWithEmailAndPassword(auth, email, password)
+            .then(() => {
+              // تم تسجيل الدخول
+            })
+            .catch((error) => {
+              alert("فشل تسجيل الدخول: " + error.message);
+            });
+        });
+      
+        // إنشاء حساب
+        document.getElementById("signupForm").addEventListener("submit", function (e) {
+          e.preventDefault();
+          const email = document.getElementById("signup-email").value;
+          const password = document.getElementById("signup-password").value;
+      
+          createUserWithEmailAndPassword(auth, email, password)
+            .then(() => {
+              // تم إنشاء الحساب
+            })
+            .catch((error) => {
+              alert("فشل إنشاء الحساب: " + error.message);
+            });
+        });
+      
+        // تسجيل الخروج
+        window.logoutUser = function () {
+          signOut(auth)
+            .then(() => {
+              location.reload();
+            })
+            .catch((error) => {
+              alert("فشل تسجيل الخروج: " + error.message);
+            });
+        };
+      
+        // التبديل بين login/signup
+        window.toggleForms = function (event) {
+            event.preventDefault();
+            document.getElementById('login-form').classList.toggle('hidden');
+            document.getElementById('signup-form').classList.toggle('hidden');
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+  const favoritesContainer = document.getElementById("favorites-container");
+
+  if (favorites.length === 0) {
+    favoritesContainer.innerHTML = "<p>لا توجد شقق مفضلة بعد.</p>";
+  } else {
+    favorites.forEach(property => {
+      if (property && property.name && property.price && property.image) { // Ensure valid property data
+        const div = document.createElement("div");
+        div.innerHTML = `
+          <h3>${property.name}</h3>
+          <p>السعر: ${property.price}</p>
+          <img src="${property.image}" alt="${property.name}" style="width: 100%; max-width: 300px; border-radius: 10px;">
+          <button class="remove-from-favorites" onclick="removeFromFavorites('${property.name}')">حذف من المفضلة</button>
+          <hr>
+        `;
+        favoritesContainer.appendChild(div);
+      }
+    });
+  }
+});
+
+window.removeFromFavorites = function (name) {
+  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  const updatedFavorites = favorites.filter(fav => fav.name && fav.name !== name); // Filter out invalid or matching items
+
+  localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+  location.reload(); // Refresh the page to update the favorites list
+};
+
+window.toggleFavorite = function (name, price, image) {
+  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  const index = favorites.findIndex(fav => fav.name === name);
+
+  if (index === -1) {
+    favorites.push({ name, price, image });
+  } else {
+    favorites.splice(index, 1);
+  }
+
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+};
+        
+let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+favorites.forEach(property => {
+  // اعرض بيانات الشقة هنا زي الاسم والصورة
+});
+    </script>
+<style>
+    .hidden {
+    display: none !important;
+    }
+</style>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

@@ -2,121 +2,154 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="infinity.css">
-  <title>حجز زيارة - Infinity</title>
-  <style>
-    /* Responsive Design */
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="infinity.css">
+    <title>حجز زيارة - Infinity</title>
+    <style>
+        .header {
+            display: flex;
+            align-items: center;
+            background-color: #111;
+            color: white;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-    /* Small screens (mobile phones) */
-    @media (max-width: 767px) {
-        body {
-            font-size: 14px;
+        .logo-hamburger {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            border-radius: 2px;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 250px;
+            height: 100%;
+            background-color: #111;
+            color: white;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+            transition: left 0.3s ease;
+            z-index: 1000;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #333;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .logo {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
         }
 
-        header h1 {
-            font-size: 24px;
-            text-align: center;
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 18px;
+            }
+
+            .sidebar a {
+                font-size: 16px;
+            }
         }
 
-        nav {
-            flex-direction: row; /* Align navigation links side by side */
-            justify-content: center; /* Center the links */
-            gap: 14px; /* Add spacing between links */
-        }
-        
-        .box {
-            width: 100%; /* Full width for smaller screens */
-            margin: 0 auto;
-        }
-
-        .properties {
-            grid-template-columns: 1fr; /* Single column layout */
+        .back-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
-        .banner h2 {
-            font-size: 20px;
+        .back-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
         }
-
-        .filter-form {
-            flex-direction: column; /* Stack form elements vertically */
-            gap: 15px;
-        }
-
-        .filter-form select,
-        .filter-form input[type="number"],
-        .filter-button {
-            width: 100%; /* Full width for form elements */
-        }
-
-        .floating-contact {
-            font-size: 40px; /* Larger size for better visibility */
-            padding: 20px 25px;
-        }
-    }
-
-    /* Extra small screens (very small phones) */
-    @media (max-width: 480px) {
-        header h1 {
-            font-size: 20px;
-        }
-
-        .banner h2 {
-            font-size: 18px;
-        }
-
-        .box {
-            padding: 15px;
-        }
-
-        footer p {
-            font-size: 12px;
-        }
-    }
-
-    .back-button {
-        background-color: #007bff;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: bold;
-        margin-top: 20px;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .back-button:hover {
-        background-color: #0056b3;
-        transform: scale(1.05);
-    }
-  </style>
+    </style>
 </head>
-
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
-            <h1>Infinity - شقق وتشطيبات</h1>
+    <header class="header">
+        <div class="logo-hamburger">
+            <div class="hamburger" onclick="toggleSidebar()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="logo-container">
+                <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
+                <h1>Infinity - حجز زيارة</h1>
+            </div>
         </div>
     </header>
-
-    <nav>
-        <!-- Navigation links -->
+    <div class="sidebar" id="sidebar">
         <a href="index.html">الرئيسية</a>
         <a href="properties.html">الشقق</a>
         <a href="services.html">التشطيبات</a>
-        <a href="furniture.html">الاثاث</a>
-        <a href="about.html">من نحن</a>
+        <a href="furniture.html">الأثاث</a>
+        <a href="investment.html">الاستثمار</a>
         <a href="contact.html">تواصل معنا</a>
-    </nav>
-
+        <a href="dashboard.html">لوحه التحكم</a>
+    </div>
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
     <section>
         <h2>احجز زيارتك الآن</h2>
         <form id="booking-form" onsubmit="sendBooking(event)">
@@ -133,7 +166,6 @@
         </p>
         <button class="back-button" onclick="history.back()">الرجوع إلى الخلف</button>
     </section>
-
     <footer>
         <div class="footer-content">
             <div class="logo-container">
@@ -144,35 +176,30 @@
             <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">العودة إلى الأعلى</button>
         </div>
     </footer>
-
     <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
         function sendBooking(event) {
             event.preventDefault();
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
 
-            // Prepare email content
             const email = "Infinity.state00@gmail.com"; // Replace with your email
             const subject = "طلب حجز زيارة";
             const body = `مرحباً،\n\nتم تقديم طلب حجز زيارة.\n\nالتفاصيل:\nالاسم: ${name}\nرقم الهاتف: ${phone}\n\nشكراً.`;
 
-            // Open mail client
             window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-            // Show confirmation message
             const confirmationMessage = document.getElementById('confirmation-message');
             confirmationMessage.style.display = "block";
 
-            // Clear form fields
             document.getElementById('booking-form').reset();
         }
-        
-        // Apply ScrollReveal animations
-        ScrollReveal().reveal('header', { duration: 1000, origin: 'top', distance: '50px' });
-        ScrollReveal().reveal('nav', { duration: 1000, origin: 'bottom', distance: '50px', delay: 200 });
-        ScrollReveal().reveal('.properties .box', { duration: 1000, origin: 'bottom', distance: '50px', interval: 200 });
-        ScrollReveal().reveal('footer', { duration: 1000, origin: 'bottom', distance: '50px', delay: 600 });
     </script>
-
 </body>
 </html>

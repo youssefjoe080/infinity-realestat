@@ -96,65 +96,178 @@
         background-color: #0056b3;
         transform: scale(1.05);
     }
+
+    .header {
+        display: flex;
+        align-items: center;
+        background-color: #111;
+        color: white;
+        padding: 15px 20px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .logo-hamburger {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        border-radius: 2px;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 250px;
+        height: 100%;
+        background-color: #111;
+        color: white;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        transition: left 0.3s ease;
+        z-index: 1000;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .sidebar a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        margin: 15px 0;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .sidebar a:hover {
+        background-color: #333;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 999;
+    }
+
+    .overlay.active {
+        display: block;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    @media (max-width: 768px) {
+        .header h1 {
+            font-size: 18px;
+        }
+
+        .sidebar a {
+            font-size: 16px;
+        }
+    }
   </style>
 </head>
 
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
-            <h1>Infinity - شقق وتشطيبات</h1>
+    <header class="header">
+        <div class="logo-hamburger">
+            <div class="hamburger" onclick="toggleSidebar()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="logo-container">
+                <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
+                <h1>Infinity - شقق وتشطيبات</h1>
+            </div>
         </div>
     </header>
 
-    <nav>
+    <div class="sidebar" id="sidebar">
         <a href="index.html">الرئيسية</a>
         <a href="properties.html">الشقق</a>
         <a href="services.html">التشطيبات</a>
-        <a href="furniture.html">الاثاث</a>
-        <a href="about.html">من نحن</a>
+        <a href="furniture.html">الأثاث</a>
+        <a href="investment.html">الاستثمار</a>
         <a href="contact.html">تواصل معنا</a>
-    </nav>
+        <a href="dashboard.html">لوحه التحكم</a>
+    </div>
 
-    <section id="property-details">
-        <div class="details-container">
-            <div class="details-header">
-                <h2 id="property-name">تفاصيل الشقة</h2>
-                <p id="property-description"></p>
-                <p><strong>السعر:</strong> <span id="property-price"></span> جنيه</p>
-            </div>
-            <div class="details-images">
-                <div class="image-slider">
-                    <button class="slider-button prev" onclick="changeSlide(-1)">&#10094;</button>
-                    <div id="property-images" class="slider-images">
-                        <!-- Images will be dynamically inserted here -->
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <div class="main-content">
+        <section id="property-details">
+            <div class="details-container">
+                <div class="details-header">
+                    <h2 id="property-name">تفاصيل الشقة</h2>
+                    <p id="property-description"></p>
+                    <p><strong>السعر:</strong> <span id="property-price"></span> جنيه</p>
+                </div>
+                <div class="details-images">
+                    <div class="image-slider">
+                        <button class="slider-button prev" onclick="changeSlide(-1)">&#10094;</button>
+                        <div id="property-images" class="slider-images">
+                            <!-- Images will be dynamically inserted here -->
+                        </div>
+                        <button class="slider-button next" onclick="changeSlide(1)">&#10095;</button>
                     </div>
-                    <button class="slider-button next" onclick="changeSlide(1)">&#10095;</button>
+                    <div class="slider-indicators" id="slider-indicators">
+                        <!-- Indicators will be dynamically inserted here -->
+                    </div>
                 </div>
-                <div class="slider-indicators" id="slider-indicators">
-                    <!-- Indicators will be dynamically inserted here -->
+                <div class="property-features">
+                    <h3>مزايا الشقة</h3>
+                    <ul id="property-features-list">
+                        <!-- Features will be dynamically inserted here -->
+                    </ul>
                 </div>
+                <div class="details-actions">
+                    <button class="visit-button" onclick="sendBookingEmail()">احجز زيارة مجاناً</button>
+                    <button class="whatsapp-button" onclick="sendWhatsAppMessage()">واتساب</button>
+                </div>
+                <button class="back-button" onclick="history.back()">الرجوع إلى الخلف</button>
             </div>
-            <div class="property-features">
-                <h3>مزايا الشقة</h3>
-                <ul id="property-features-list">
-                    <!-- Features will be dynamically inserted here -->
-                </ul>
-            </div>
-            <div class="details-actions">
-                <button class="visit-button" onclick="window.location.href='booking.html'">احجز زيارة مجاناً</button>
-                <button class="whatsapp-button" onclick="window.open('https://wa.me/201065173490', '_blank')">واتساب</button>
-            </div>
-            <button class="back-button" onclick="history.back()">الرجوع إلى الخلف</button>
-        </div>
-    </section>
+        </section>
 
-    <section id="related-properties">
-        <h2>شقق قريبة</h2>
-        <div class="related-container">
-            <!-- Related properties will be dynamically inserted here -->
-        </div>
-    </section>
+        <section id="related-properties">
+            <h2>شقق قريبة</h2>
+            <div class="related-container">
+                <!-- Related properties will be dynamically inserted here -->
+            </div>
+        </section>
+    </div>
 
     <footer>
         <div class="footer-content">
@@ -267,6 +380,36 @@
                 ]
             },
             {
+                name: "4 شقق في المقطم الهضبه الوسطي شارع الجامعه الحديثه",
+                description: "شقق مميزة بتصميم عصري وتشطيب فاخر، تقع في موقع استراتيجي بالقرب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية. تتميز بمساحة واسعة وتوزيع مثالي للغرف، مما يجعلها خيارًا رائعًا للسكن أو الاستثمار.",
+                price: 1150000,
+                features: [
+                    "لاسعار تبداء من 1,150,000 الي 1,500,000",
+                    "الدور الخامس والسابع اربع شقق",
+                    "نصف تشطيب",
+                    "مساحة 125 متر",
+                    "2 غرف نوم",
+                    "حمام 2",
+                    "عدد الشقق في الدور: شقتان فقط"
+                ],
+                images: [
+                    "properties/photo5/background.jpg",
+                    "properties/photo5/2.jpg",
+                    "properties/photo5/3.jpg",
+                    "properties/photo5/4.jpg",
+                    "properties/photo5/5.jpg",
+                    "properties/photo5/6.jpg",
+                    "properties/photo5/7.jpg",
+                    "properties/photo5/8.jpg",
+                    "properties/photo5/9.jpg",
+                    "properties/photo5/10.jpg",
+                    "properties/photo5/11.jpg",
+                    "properties/photo5/12.jpg",
+                    "properties/photo5/13.jpg",
+                    "properties/photo5/14.jpg",
+                ]
+            },
+            {
                 name: "شقه في المقطم الهضبه الوسطي الحي التاني بجوار مسجد عبله الكحلاوي",
                 description: "شقه مميزة، تقع في موقع استراتيجي بالقرب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية. تتميز بمساحة واسعة وتوزيع مثالي للغرف، مما يجعلها خيارًا رائعًا للسكن أو الاستثمار.",
                 price: 1500000,
@@ -279,20 +422,15 @@
                     "عدد الشقق في الدور: شقتان فقط"
                 ],
                 images: [
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
+                    "properties/photo6/background.jpg",
+                    "properties/photo6/2.jpg",
+                    "properties/photo6/3.jpg",
+                    "properties/photo6/4.jpg",
+                    "properties/photo6/5.jpg",
+                    "properties/photo6/6.jpg",
+                    "properties/photo6/7.jpg",
+                    "properties/photo6/8.jpg",
+                    "properties/photo6/9.jpg",
                 ]
             }, 
             {
@@ -308,20 +446,10 @@
                     "عدد الشقق في الدور: 4 شقق"
                 ],
                 images: [
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
+                    "properties/photo7/background.jpg",
+                    "properties/photo7/2.jpg",
+                    "properties/photo7/3.jpg",
+                    "properties/photo7/4.jpg",
                 ]
             },
             {
@@ -337,20 +465,19 @@
                     "عدد الشقق في الدور: شقتان فقط"
                 ],
                 images: [
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
+                    "properties/photo8/background.jpg",
+                    "properties/photo8/2.jpg",
+                    "properties/photo8/3.jpg",
+                    "properties/photo8/4.jpg",
+                    "properties/photo8/5.jpg",
+                    "properties/photo8/6.jpg",
+                    "properties/photo8/7.jpg",
+                    "properties/photo8/8.jpg",
+                    "properties/photo8/9.jpg",
+                    "properties/photo8/10.jpg",
+                    "properties/photo8/11.jpg",
+                    "properties/photo8/12.jpg",
+                    "properties/photo8/13.jpg",
                 ]
             },
             {
@@ -366,20 +493,7 @@
                     "عدد الشقق في الدور: شقتان فقط"
                 ],
                 images: [
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
+                    "properties/photo9/background.jpg",
                 ]
             },
             {
@@ -424,20 +538,11 @@
                     "عدد الشقق في الدور: شقتان فقط"
                 ],
                 images: [
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
+                    "properties/photo11/background.jpg",
+                    "properties/photo11/2.jpg",
+                    "properties/photo11/3.jpg",
+                    "properties/photo11/4.jpg",
+                    "properties/photo11/5.jpg",
                 ]
             },
             {
@@ -453,20 +558,18 @@
                     "عدد الشقق في الدور: شقتان فقط"
                 ],
                 images: [
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
+                    "properties/photo12/background.jpg",
+                    "properties/photo12/2.jpg",
+                    "properties/photo12/3.jpg",
+                    "properties/photo12/4.jpg",
+                    "properties/photo12/5.jpg",
+                    "properties/photo12/6.jpg",
+                    "properties/photo12/7.jpg",
+                    "properties/photo12/8.jpg",
+                    "properties/photo12/9.jpg",
+                    "properties/photo12/10.jpg",
+                    "properties/photo12/11.jpg",
+                    "properties/photo12/12.jpg",
                 ]
             },
             {
@@ -482,21 +585,13 @@
                     "عدد الشقق في الدور: شقتان فقط"
                 ],
                 images: [
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                ]
+                    "properties/photo13/background.jpg",
+                    "properties/photo13/2.jpg",
+                    "properties/photo13/3.jpg",
+                    "properties/photo13/4.jpg",
+                    "properties/photo13/5.jpg",
+                    "properties/photo13/6.jpg",
+                ]    
             },
             {
                 name: "شقة في المقطم الهضبه الوسطي الحي التاني بجوار مدرسه رساله",
@@ -511,20 +606,12 @@
                     "عدد الشقق في الدور: 4"
                 ],
                 images: [
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
+                    "properties/photo14/background.jpg",
+                    "properties/photo14/2.jpg",
+                    "properties/photo14/3.jpg",
+                    "properties/photo14/4.jpg",
+                    "properties/photo14/5.jpg",
+                    "properties/photo14/6.jpg",
                 ]
             },
             {
@@ -540,11 +627,25 @@
                     "عدد الشقق في الدور: 2"
                 ],
                 images: [
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
+                    "properties/photo15/background.jpg",
+                    "properties/photo15/2.jpg",
+                ]
+            },
+            {
+                name: "المقطم الهضبه الوسطي الحي التاني قريب من السلاب",
+                description: "شقق مميزة، تقع في موقع استراتيجي بالقرب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية. تتميز بمساحة واسعة وتوزيع مثالي للغرف، مما يجعلها خيارًا رائعًا للسكن أو الاستثمار.",
+                price: 16500,
+                features: [
+                    "كل الادوار متاحه العماره 7 ادوار",
+                    "نصف تشطيب",
+                    "مساحة 160 متر",
+                    "3 غرف نوم",
+                    "2 حمام",
+                    "عدد الشقق في الدور: 2"
+                ],
+                images: [
+                    "properties/photo16/background.jpg",
+                    "properties/photo16/2.jpg",
                 ]
             },
             {
@@ -560,11 +661,23 @@
                     "عدد الشقق في الدور: 4"
                 ],
                 images: [
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
-                    "properties/photo",
+                    "properties/photo17/background.jpg",
+                ]
+            },
+            {
+                name: "المقطم الهضبه الوسطي الحي السادس",
+                description: "شقق مميزة، تقع في موقع استراتيجي بالقرب من جميع الخدمات. مثالية للعائلات الباحثة عن الراحة والرفاهية. تتميز بمساحة واسعة وتوزيع مثالي للغرف، مما يجعلها خيارًا رائعًا للسكن أو الاستثمار.",
+                price: 16500,
+                features: [
+                    "كل الادوار متاحه العماره 7 ادوار",
+                    "نصف تشطيب",
+                    "مساحة 165 متر ",
+                    "3 غرف نوم",
+                    "2 حمام",
+                    "عدد الشقق في الدور: 2"
+                ],
+                images: [
+                    "properties/photo18/background.jpg",
                 ]
             },
         ]
@@ -638,6 +751,30 @@
             currentSlide = index;
             slides[currentSlide].classList.add('active');
             indicators[currentSlide].classList.add('active');
+        }
+
+        function sendWhatsAppMessage() {
+            const propertyName = document.getElementById('property-name').textContent.trim();
+            const message = `السلام عليكم عاوز اعرف تفاصيل عن الشقة: ${propertyName}`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappNumber = "201065173490";
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        function sendBookingEmail() {
+            const propertyName = document.getElementById('property-name').textContent.trim();
+            const propertyDescription = document.getElementById('property-description').textContent.trim();
+            const email = "Infinity.state00@gmail.com"; // Replace with your email
+            const subject = `طلب حجز زيارة للشقة: ${propertyName}`;
+            const body = `مرحباً،\n\nأرغب في حجز زيارة للشقة التالية:\n\nاسم الشقة: ${propertyName}\nتفاصيل الشقة: ${propertyDescription}\n\nشكراً.`;
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
         }
     </script>
 </body>

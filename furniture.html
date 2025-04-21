@@ -138,50 +138,171 @@
             background-color: #0056b3;
             transform: scale(1.05);
         }
+
+        .header {
+            display: flex;
+            align-items: center;
+            background-color: #111;
+            color: white;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-hamburger {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            border-radius: 2px;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 250px;
+            height: 100%;
+            background-color: #111;
+            color: white;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+            transition: left 0.3s ease;
+            z-index: 1000;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #333;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 18px;
+            }
+
+            .sidebar a {
+                font-size: 16px;
+            }
+        }
       </style>
 </head>
 <body>
-    
-    <header>
-        <div class="logo-container">
-            <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
-            <h1>Infinity - شقق وتشطيبات</h1>
+    <header class="header">
+        <div class="logo-hamburger">
+            <div class="hamburger" onclick="toggleSidebar()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="logo-container">
+                <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
+                <h1>Infinity - الأثاث</h1>
+            </div>
         </div>
     </header>
 
-    <nav>
-        <!-- Navigation links -->
+    <div class="sidebar" id="sidebar">
         <a href="index.html">الرئيسية</a>
         <a href="properties.html">الشقق</a>
         <a href="services.html">التشطيبات</a>
-        <a href="furniture.html">الاثاث</a>
-        <a href="about.html">من نحن</a>
+        <a href="furniture.html" class="active">الأثاث</a>
+        <a href="investment.html">الاستثمار</a>
         <a href="contact.html">تواصل معنا</a>
-    </nav>
-
-    <h2 class="furniture-heading">اختر نوع الأثاث</h2>
-    <div class="ftr-btn">
-        <div class="card" onclick="window.location.href='modern-ftr.html'" style="cursor: pointer;">
-            <img src="fruniture/modern/set-room-modern.jpg" alt="Modern Furniture">
-            <h3>اثاث مودرن</h3>
-            <p>تصميم عصري يناسب جميع الأذواق.</p>
-        </div>
-        <div class="card" onclick="window.location.href='economic-ftr.html'" style="cursor: pointer;">
-            <img src="fruniture/economic/set-room-economic.jpg" alt="Economic Furniture">
-            <h3>اثاث اقتصادي</h3>
-            <p>تصميم مريح وبأسعار مناسبة.</p>
-        </div>
+        <a href="dashboard.html">لوحه التحكم</a>
     </div>
-    <button class="back-button" onclick="history.back()">الرجوع إلى الخلف</button>
+
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <div class="main-content">
+        <h2 class="furniture-heading">اختر نوع الأثاث</h2>
+        <div class="ftr-btn">
+            <div class="card" onclick="window.location.href='modern-ftr.html'" style="cursor: pointer;">
+                <img src="fruniture/modern/set-room-modern.jpg" alt="Modern Furniture">
+                <h3>اثاث مودرن</h3>
+                <p>تصميم عصري يناسب جميع الأذواق.</p>
+            </div>
+            <div class="card" onclick="window.location.href='economic-ftr.html'" style="cursor: pointer;">
+                <img src="fruniture/economic/set-room-economic.jpg" alt="Economic Furniture">
+                <h3>اثاث اقتصادي</h3>
+                <p>تصميم مريح وبأسعار مناسبة.</p>
+            </div>
+        </div>
+        <button class="back-button" onclick="history.back()">الرجوع إلى الخلف</button>
+    </div>
 
     <footer>
-        <div class="logo-container">
-            <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
-            <h1>Infinity - شقق وتشطيبات</h1>
+        <div class="footer-content">
+            <div class="logo-container">
+                <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
+                <h1>Infinity - شقق وتشطيبات</h1>
+            </div>
+            <p>© 2025 Infinity. جميع الحقوق محفوظة.</p>
+            <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">العودة إلى الأعلى</button> 
         </div>
-        <p>© 2025 Infinity. جميع الحقوق محفوظة.</p>
-        <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">العودة إلى الأعلى</button> 
     </footer>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+    </script>
     <script>
         // Apply ScrollReveal animations
         ScrollReveal().reveal('header', { duration: 1000, origin: 'top', distance: '50px' });

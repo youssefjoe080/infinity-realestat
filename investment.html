@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="infinity.css">
+    <title>فرص استثمارية - Infinity</title>
+    <script src="https://unpkg.com/scrollreveal"></script>
+  <style>
+    /* Responsive Design */
+
+    /* Small screens (mobile phones) */
+    @media (max-width: 767px) {
+        body {
+            font-size: 14px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            text-align: center;
+        }
+
+        nav {
+            flex-direction: row; /* Align navigation links side by side */
+            justify-content: center; /* Center the links */
+            gap: 6px; /* Add spacing between links */
+        }
+
+        .box {
+            width: 100%; /* Full width for smaller screens */
+            margin: 0 auto;
+        }
+
+        .properties {
+            grid-template-columns: 1fr; /* Single column layout */
+        }
+
+        .banner h2 {
+            font-size: 20px;
+        }
+
+        .filter-form {
+            flex-direction: column; /* Stack form elements vertically */
+            gap: 15px;
+        }
+
+        .filter-form select,
+        .filter-form input[type="number"],
+        .filter-button {
+            width: 100%; /* Full width for form elements */
+        }
+    }
+
+    /* Extra small screens (very small phones) */
+    @media (max-width: 480px) {
+        header h1 {
+            font-size: 20px;
+        }
+
+        .banner h2 {
+            font-size: 18px;
+        }
+
+        .box {
+            padding: 15px;
+        }
+
+        footer p {
+            font-size: 12px;
+        }
+    }
+       
+    .floating-contact {
+        font-size: 20px; /* Reduced size for better alignment */
+        padding: 10px 15px; /* Adjusted padding */ 
+        }
+    
+    .header {
+        display: flex;
+        align-items: center;
+        background-color: #111;
+        color: white;
+        padding: 15px 20px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .logo-hamburger {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        border-radius: 2px;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 250px;
+        height: 100%;
+        background-color: #111;
+        color: white;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        transition: left 0.3s ease;
+        z-index: 1000;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .sidebar a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        margin: 15px 0;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .sidebar a:hover {
+        background-color: #333;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 999;
+    }
+
+    .overlay.active {
+        display: block;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    @media (max-width: 768px) {
+        .header h1 {
+            font-size: 18px;
+        }
+
+        .sidebar a {
+            font-size: 16px;
+        }
+    }
+  </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-hamburger">
+            <div class="hamburger" onclick="toggleSidebar()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="logo-container">
+                <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
+                <h1>Infinity - فرص استثمارية</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <a href="index.html">الرئيسية</a>
+        <a href="properties.html">الشقق</a>
+        <a href="services.html">التشطيبات</a>
+        <a href="furniture.html">الأثاث</a>
+        <a href="investment.html" class="active">الاستثمار</a>
+        <a href="contact.html">تواصل معنا</a>
+        <a href="dashboard.html"> لوحه التحكم </a>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <div class="main-content">
+        <section class="hero" style="text-align: center;">
+            <h2>فرص استثمارية مع Infinity</h2>
+            <p>اكتشف أفضل الفرص الاستثمارية التي تضمن لك عائدًا مميزًا ومستقرًا مع Infinity.</p>
+        </section>
+
+        <section class="investment-cards">
+            <h2 style="text-align: center;">فرص الاستثمار المتاحة</h2>
+            <div class="cards-container" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
+                <div class="box">
+                    <img src="investment/السكن الطلابي.jpg" alt="السكن الطلابي" class="property-image">
+                    <h3>السكن الطلابي</h3>
+                    <p>تحويل شقة إلى سكن طلابي مفروش بالكامل مع دخل شهري أعلى من الإيجار العادي.</p>
+                    <button class="details-button" onclick="scrollToDetails('student-housing')">اعرف التفاصيل</button>
+                </div>
+                <div class="box">
+                    <img src="investment/تاجير وحدتك العقاريه .jpg" alt="تأجير وحدتك العقارية" class="property-image">
+                    <h3>تأجير وحدتك العقارية</h3>
+                    <p>بنوفر لك التشطيب، الفرش، الإعلان، ونعمل لك دخل شهري ثابت بدون مجهود.</p>
+                    <button class="details-button" onclick="scrollToDetails('property-rental')">اعرف التفاصيل</button>
+                </div>
+                <div class="box">
+                    <img src="investment/شراكه في بناء مشروع .jpg" alt="شراكة في مشروع بناء" class="property-image">
+                    <h3>شراكة في مشروع بناء</h3>
+                    <p>شارك في مشروع بناء (عمارة أو برج) واحصل على نسبة من الأرباح بعد البيع.</p>
+                    <button class="details-button" onclick="scrollToDetails('project-partnership')">اعرف التفاصيل</button>
+                </div>
+                <div class="box">
+                    <img src="investment/محلات تجاريه للئيجار.jpg" alt="محلات تجارية للإيجار" class="property-image">
+                    <h3>محلات تجارية للإيجار</h3>
+                    <p>استثمر في محل جاهز للتأجير، بعائد عالي ومستقر.</p>
+                    <button class="details-button" onclick="scrollToDetails('commercial-rental')">اعرف التفاصيل</button>
+                </div>
+                <div class="box">
+                    <img src="investment/اراضي استثماريه.jpg" alt="أراضي استثمارية" class="property-image">
+                    <h3>أراضي استثمارية</h3>
+                    <p>أراضي جاهزة للبناء في مناطق واعدة، تصلح للبيع أو الشراكة في البناء.</p>
+                    <button class="details-button" onclick="scrollToDetails('investment-lands')">اعرف التفاصيل</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- تفاصيل الاستثمار -->
+        <section id="investment-details" style="margin-top: 50px;">
+            <div id="student-housing" style="margin-bottom: 30px;">
+                <h3>تفاصيل السكن الطلابي</h3>
+                <p>السكن الطلابي هو فرصة استثمارية مميزة تتيح لك تحويل شقة إلى سكن مفروش بالكامل للطلاب. يتميز هذا النوع من الاستثمار بعائد شهري أعلى من الإيجار العادي، مع طلب مستمر من الطلاب الباحثين عن سكن قريب من الجامعات.</p>
+                <p>نحن نوفر لك كل ما تحتاجه لتحويل شقتك إلى سكن طلابي، بما في ذلك التشطيب، الفرش، والإدارة الكاملة.</p>
+                
+                <div style="margin-top: 20px; padding: 20px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                    <h4 style="color: #007bff;">الشقق القريبة من الجامعات</h4>
+                    <p>لدينا مجموعة من الشقق المميزة التي تقع بالقرب من الجامعات، مما يجعلها مثالية للسكن الطلابي.</p>
+                    <ul style="text-align: right; margin-top: 10px; color: #555;">
+                        <li>
+                            شقة في المقطم - الهضبة الوسطى - الحي السابع بجوار صلاح الدين
+                            <div style="margin-top: 10px;">
+                                <button onclick="window.location.href='details.html?name=شقة في المقطم - الهضبة الوسطى - الحي السابع بجوار صلاح الدين'" style="background-color: #007bff; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 12px;">تفاصيل</button>
+                                <button onclick="sendBookingEmail('شقة في المقطم - الهضبة الوسطى - الحي السابع بجوار صلاح الدين')" style="background-color: #28a745; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 12px;">احجز زيارة</button>
+                                <button onclick="window.open('https://wa.me/201065173490?text=السلام%20عليكم%20عاوز%20اعرف%20تفاصيل%20عن%20الشقة:%20شقة%20في%20المقطم%20-%20الهضبة%20الوسطى%20-%20الحي%20السابع%20بجوار%20صلاح%20الدين', '_blank')" style="background-color: #25d366; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 12px;">واتساب</button>
+                            </div>
+                        </li>
+                        <li>
+                            شقه في المقطم الهضبه الوسطي شارع الجامعه بجوار صيداليه دكتور شريف
+                            <div style="margin-top: 10px;">
+                                <button onclick="window.location.href='details.html?name=شقه في المقطم الهضبه الوسطي شارع الجامعه بجوار صيداليه دكتور شريف'" style="background-color: #007bff; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 12px;">تفاصيل</button>
+                                <button onclick="sendBookingEmail('شقه في المقطم الهضبه الوسطي شارع الجامعه بجوار صيداليه دكتور شريف')" style="background-color: #28a745; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 12px;">احجز زيارة</button>
+                                <button onclick="window.open('https://wa.me/201065173490?text=السلام%20عليكم%20عاوز%20اعرف%20تفاصيل%20عن%20الشقة:%20شقه%20في%20المقطم%20الهضبه%20الوسطي%20شارع%20الجامعه%20بجوار%20صيداليه%20دكتور%20شريف', '_blank')" style="background-color: #25d366; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 12px;">واتساب</button>
+                            </div>
+                        </li>
+                        <li>
+                            4 شقق في المقطم الهضبه الوسطي شارع الجامعه الحديثه
+                            <div style="margin-top: 10px;">
+                                <button onclick="window.location.href='details.html?name=4 شقق في المقطم الهضبه الوسطي شارع الجامعه الحديثه'" style="background-color: #007bff; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 12px;">تفاصيل</button>
+                                <button onclick="sendBookingEmail('4 شقق في المقطم الهضبه الوسطي شارع الجامعه الحديثه')" style="background-color: #28a745; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 12px;">احجز زيارة</button>
+                                <button onclick="window.open('https://wa.me/201065173490?text=السلام%20عليكم%20عاوز%20اعرف%20تفاصيل%20عن%20الشقة:%204%20شقق%20في%20المقطم%20الهضبه%20الوسطي%20شارع%20الجامعه%20الحديثه', '_blank')" style="background-color: #25d366; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 12px;">واتساب</button>
+                            </div>
+                        </li>
+                    </ul>
+                    <button onclick="filterProperties('student-housing')" style="margin-top: 15px; background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px;">عرض باقي الشقق المتاحة</button>
+                </div>
+            </div>
+            <div style="margin-top: 20px; padding: 20px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" id="property-rental" style="margin-bottom: 30px;">
+                <h3>تفاصيل تأجير وحدتك العقارية</h3>
+                <p>نقوم بتوفير خدمات التشطيب والفرش والإعلان لتأجير وحدتك العقارية بسهولة وضمان دخل شهري ثابت. نحن نعمل على إدارة وحدتك العقارية بشكل كامل، مما يتيح لك الاستمتاع بدخل شهري دون أي مجهود. خدماتنا تشمل التسويق، التفاوض مع المستأجرين، وإدارة العقود.</p>
+                <img src="investment/تاجير وحدتك العقاريه .jpg" alt="تأجير وحدتك العقارية" class="property-image" style="width: 100%; max-width: 400px; margin: 20px auto; display: block; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <div style="display: flex; justify-content: center; gap: 10px; margin-top: 15px;">
+                    <button onclick="filterProperties('property-rental')" style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px;">عرض الشقق التي لدينا المتاحة</button>
+                    <button onclick="window.open('https://wa.me/201065173490?text=السلام%20عليكم%20أرغب%20في%20معرفة%20تفاصيل%20عن%20تأجير%20وحدتي%20العقارية', '_blank')" style="background-color: #25d366; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px;">واتساب</button>
+                </div>
+            </div>
+            <div style="margin-top: 20px; padding: 20px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" id="project-partnership" style="margin-bottom: 30px;">
+                <h3>تفاصيل شراكة في مشروع بناء</h3>
+                <p>شارك في بناء مشاريع عقارية واحصل على نسبة من الأرباح بعد بيع الوحدات.</p>
+                <button onclick="filterProperties('project-partnership')" style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px;">عرض الشقق المتاحة</button>
+            </div>
+            <div style="margin-top: 20px; padding: 20px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" id="commercial-rental" style="margin-bottom: 30px;">
+                <h3>تفاصيل المحلات التجارية للإيجار</h3>
+                <p>استثمر في محلات تجارية جاهزة للإيجار بعائد مرتفع ومستقر.</p>
+                <button onclick="filterProperties('commercial-rental')" style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px;">عرض الشقق المتاحة</button>
+            </div>
+            <div style="margin-top: 20px; padding: 20px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" id="investment-lands" style="margin-bottom: 30px;">
+                <h3>تفاصيل الأراضي الاستثمارية</h3>
+                <p>أراضي جاهزة للبناء في مواقع مميزة تصلح للاستثمار أو الشراكة في البناء.</p>
+                <button onclick="filterProperties('investment-lands')" style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px;">عرض الشقق المتاحة</button>
+            </div>
+        </section>
+
+        <script>
+            function scrollToDetails(sectionId) {
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            }
+
+            function filterProperties(type) {
+                const excludedAreas = ['الحي الأول', 'الحي الثاني', 'الحي الثالث'];
+                const filteredProperties = [
+                    'شقة في المقطم - الهضبة الوسطى - الحي السابع بجوار صلاح الدين',
+                    'شقه في المقطم الهضبه الوسطي شارع الجامعه بجوار صيداليه دكتور شريف',
+                    '4 شقق في المقطم الهضبه الوسطي شارع الجامعه الحديثه',
+                    'شقه في المقطم الهضبه الوسطي الحي الرابع بجوار مدرسه اتون',
+                    'شقة دوبلكس في المقطم الهضبةالوسطي الحي الاول اخر شارع البارون',
+                    'شقه في المقطم الهضبه الوسطي الحي السابع تالت نمره من صلاح الدين',
+                    'شقق في المقطم الهضبه العاليا بجوار الزهور'
+                ].filter(property => !excludedAreas.some(area => property.includes(area)));
+
+                const query = filteredProperties.map(name => `name=${encodeURIComponent(name)}`).join('&');
+                window.location.href = `properties.html?${query}`;
+            }
+
+            function toggleSidebar() {
+                const sidebar = document.getElementById('sidebar');
+                const overlay = document.getElementById('overlay');
+                sidebar.classList.toggle('active');
+                overlay.classList.toggle('active');
+            }
+        </script>
+
+        <section class="cta" style="text-align: center;">
+            <h2>مش عارف تبدأ منين؟</h2>
+            <p>احجز استشارة مجانية مع فريق Infinity لمساعدتك في اختيار أفضل فرصة استثمارية.</p>
+            <button class="cta-button" onclick="window.location.href='contact.html'">احجز استشارتك الآن</button>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo-container">
+                <img src="infinity-logo.jpg" alt="Infinity Logo" class="logo">
+                <h1>Infinity - فرص استثمارية</h1>
+            </div>
+            <p>© 2025 Infinity. جميع الحقوق محفوظة.</p>
+            <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">العودة إلى الأعلى</button>
+        </div>
+    </footer>
+</body>
+</html>
